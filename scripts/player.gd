@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 2
+const SPEED = 0.8
 const JUMP_VELOCITY = 2.5
 
 
@@ -24,10 +24,10 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x < 0:
 		animated_sprite_3d.flip_h = true
 		
-	if velocity.x == 0:
-		animated_sprite_3d.play("idle")
-	else:
+	if velocity.x != 0 or velocity.z != 0:
 		animated_sprite_3d.play("walk")
+	else:
+		animated_sprite_3d.play("idle")
 	
 	if direction:
 		velocity.x = direction.x * SPEED

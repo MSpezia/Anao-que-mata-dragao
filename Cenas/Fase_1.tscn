@@ -38,7 +38,7 @@ mesh = SubResource("PlaneMesh_vmd1h")
 shape = SubResource("ConcavePolygonShape3D_2g513")
 
 [node name="Parede" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984835, -0.173493, 0, 0.173493, 0.984835, 0, 0.992852, 2.6763)
+transform = Transform3D(1, 0, 0, 0, 0.984835, -0.173493, 0, 0.173493, 0.984835, 0, 0.992852, 2.76428)
 visible = false
 mesh = SubResource("BoxMesh_54bg6")
 
