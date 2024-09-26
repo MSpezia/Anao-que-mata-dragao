@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://wpcf6xa2nnpu"]
+[gd_scene load_steps=21 format=3 uid="uid://wpcf6xa2nnpu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hvv0j"]
 [ext_resource type="Texture2D" uid="uid://dk274ymx2wfxk" path="res://Sprites/playerSheet.png" id="2_r2ofq"]
@@ -6,74 +6,98 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vbou"]
 size = Vector3(0.16, 0.155115, 0.1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_upept"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y70sd"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(0, 0, 15, 15)
+region = Rect2(31, 51, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ffk68"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gaud"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(15, 0, 15, 15)
+region = Rect2(0, 0, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_licrm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4c7k"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(30, 0, 15, 15)
+region = Rect2(31, 0, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xyni2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wuog"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(45, 0, 15, 15)
+region = Rect2(62, 0, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mywug"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwlu0"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(60, 0, 15, 15)
+region = Rect2(93, 0, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ilex"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_swdhl"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(75, 0, 15, 15)
+region = Rect2(124, 0, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yul8e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk7ti"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(0, 15, 15, 15)
+region = Rect2(155, 0, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a517f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n5pk"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(15, 15, 15, 15)
+region = Rect2(0, 51, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dur6b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry1a8"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(30, 15, 15, 15)
+region = Rect2(62, 51, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2omv2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkm70"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(45, 15, 15, 15)
+region = Rect2(93, 51, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0fu7u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hufv6"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(60, 15, 15, 15)
+region = Rect2(0, 17, 17, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e4yfy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kferq"]
 atlas = ExtResource("2_r2ofq")
-region = Rect2(75, 15, 15, 15)
+region = Rect2(31, 17, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07372"]
+atlas = ExtResource("2_r2ofq")
+region = Rect2(62, 17, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8axod"]
+atlas = ExtResource("2_r2ofq")
+region = Rect2(93, 17, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8uk1"]
+atlas = ExtResource("2_r2ofq")
+region = Rect2(124, 17, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emyfc"]
+atlas = ExtResource("2_r2ofq")
+region = Rect2(155, 17, 17, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q2qrd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_upept")
+"texture": SubResource("AtlasTexture_y70sd")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gaud")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ffk68")
+"texture": SubResource("AtlasTexture_p4c7k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_licrm")
+"texture": SubResource("AtlasTexture_1wuog")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xyni2")
+"texture": SubResource("AtlasTexture_hwlu0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mywug")
+"texture": SubResource("AtlasTexture_swdhl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6ilex")
+"texture": SubResource("AtlasTexture_mk7ti")
 }],
 "loop": true,
 "name": &"idle",
@@ -81,22 +105,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yul8e")
+"texture": SubResource("AtlasTexture_1n5pk")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry1a8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a517f")
+"texture": SubResource("AtlasTexture_tkm70")
+}],
+"loop": true,
+"name": &"landing",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hufv6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dur6b")
+"texture": SubResource("AtlasTexture_kferq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2omv2")
+"texture": SubResource("AtlasTexture_07372")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0fu7u")
+"texture": SubResource("AtlasTexture_8axod")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e4yfy")
+"texture": SubResource("AtlasTexture_g8uk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emyfc")
 }],
 "loop": true,
 "name": &"walk",
@@ -111,10 +154,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0776331, 0)
 shape = SubResource("BoxShape3D_1vbou")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0787151, 0)
-centered = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0819718, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_q2qrd")
-animation = &"idle"
-frame = 4
-frame_progress = 0.317954
+animation = &"landing"
+autoplay = "idle"

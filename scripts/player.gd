@@ -1,39 +1,43 @@
-extends CharacterBody3D
+extends Character
 
-
-const SPEED = 0.8
-const JUMP_VELOCITY = 2.5
-
-
-@onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+func _idle() -> void:
+	_enter_state("idle")
+	_stop_movement()
 	
-	if velocity.x > 0:
-		animated_sprite_3d.flip_h = false
-	elif velocity.x < 0:
-		animated_sprite_3d.flip_h = true
+	if input:
+		_change_state(StateMachine.WALK)
 		
-	if velocity.x != 0 or velocity.z != 0:
-		animated_sprite_3d.play("walk")
-	else:
-		animated_sprite_3d.play("idle")
-	
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED * 2 
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	if jump:
+		_change_state(StateMachine.JUMP)
 
-	move_and_slide()
+func _walk() -> void:
+	_enter_state("walk")
+	_movement()
+	_flip()
+	
+	if not input:
+		_change_state(StateMachine.IDLE)
+		
+	if jump:
+		_change_state(StateMachine.JUMP)
+
+func _jump() -> void:
+	_movement()
+	_flip()
+	
+	if enter_state:
+		enter_state = false
+		velocity.y = jump_force
+		animated_sprite.play("jump")
+		await get_tree().create_timer(0.2).timeout
+
+	if not is_on_floor():
+		if velocity.y <= 0:
+			animated_sprite.play("falling")
+	if is_on_floor():
+		animated_sprite.play("landing")
+		if input:
+			_change_state(StateMachine.IDLE)
+		else:
+			await get_tree().create_timer(0.05).timeout
+			_change_state(StateMachine.IDLE)
