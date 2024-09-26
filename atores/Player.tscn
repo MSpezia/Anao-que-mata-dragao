@@ -112,8 +112,9 @@ shape = SubResource("BoxShape3D_1vbou")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0787151, 0)
+centered = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_q2qrd")
 animation = &"idle"
-frame = 5
-frame_progress = 0.0881934
+frame = 4
+frame_progress = 0.317954

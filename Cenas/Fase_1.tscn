@@ -23,12 +23,12 @@ texture_filter = 0
 texture = ExtResource("1_ba5qy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.610514, 0.561068, 6.86022)
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.610514, 1.89305, 1.73634)
 projection = 1
 current = true
 
 [node name="Chão" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984835, -0.173493, 0, 0.173493, 0.984835, 0, 0.569624, 2.17157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531642, 2.17157)
 visible = false
 mesh = SubResource("PlaneMesh_vmd1h")
 
@@ -38,7 +38,7 @@ mesh = SubResource("PlaneMesh_vmd1h")
 shape = SubResource("ConcavePolygonShape3D_2g513")
 
 [node name="Parede" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984835, -0.173493, 0, 0.173493, 0.984835, 0, 0.992852, 2.76428)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00262737, 0.992852, -1.01791)
 visible = false
 mesh = SubResource("BoxMesh_54bg6")
 
@@ -47,8 +47,11 @@ mesh = SubResource("BoxMesh_54bg6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Parede/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_v6iyh")
 
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_n6bd1")]
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21, 0.617907, -0.658776)
+
 [node name="Parede2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984835, -0.173493, 0, 0.173493, 0.984835, 0, 0.5, 5.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04879, 0.627004)
 visible = false
 mesh = SubResource("BoxMesh_54bg6")
 
@@ -56,6 +59,3 @@ mesh = SubResource("BoxMesh_54bg6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Parede2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_v6iyh")
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_n6bd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21, 0.4, 3.057)
