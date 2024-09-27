@@ -274,7 +274,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0776331, 0)
 shape = SubResource("BoxShape3D_1vbou")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0826197, -0.00631771, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, -0.006, 0)
 centered = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_l12ec")
