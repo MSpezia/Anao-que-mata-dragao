@@ -192,12 +192,25 @@ animations = [{
 "name": &"attack3",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ahpa")
 }],
 "loop": true,
 "name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -280,7 +293,8 @@ shape = SubResource("BoxShape3D_1vbou")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_l12ec")
-animation = &"idle"
+animation = &"hurt"
+autoplay = "idle"
 
 [node name="Attack" type="Area3D" parent="."]
 

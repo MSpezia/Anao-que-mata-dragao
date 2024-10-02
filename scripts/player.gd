@@ -1,4 +1,4 @@
-extends Character
+class_name Player extends Character
 
 func _idle() -> void:
 	_enter_state("idle")
@@ -84,3 +84,20 @@ func _attack3() -> void:
 	if animated_sprite.frame >= 5:
 		_exit_attack()
 		_change_state(StateMachine.IDLE)
+		
+func _hurt() -> void:
+	if enter_state:
+		enter_state = false
+		animated_sprite.play("hurt")
+		_stop_movement()
+		
+		await get_tree().create_timer(0.5).timeout
+		_change_state(StateMachine.IDLE)
+		
+func _dead() -> void:
+	if enter_state:
+		enter_state = false
+		animated_sprite.play("hurt")
+		_stop_movement()
+		print("morreu")
+		

@@ -1,8 +1,8 @@
 class_name Character extends CharacterBody3D
 
-enum StateMachine { IDLE , WALK, JUMP, ATTACK, ATTACK2, ATTACK3}
+enum StateMachine { IDLE , WALK, JUMP, ATTACK, ATTACK2, ATTACK3, HURT, DEAD}
 
-
+@export var hp = 100
 @export var speed := 0.65
 @export var jump_force := 2.5
 var gravity : float = 9.8
@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 		StateMachine.ATTACK: _attack()
 		StateMachine.ATTACK2: _attack2()
 		StateMachine.ATTACK3: _attack3()
+		StateMachine.HURT: _hurt()
+		StateMachine.DEAD: _dead()
 		
 	_set_gravity(delta)
 	move_and_slide()
@@ -52,6 +54,8 @@ func _jump() -> void: pass
 func _attack() -> void: pass
 func _attack2() -> void: pass
 func _attack3() -> void: pass
+func _hurt() -> void:pass
+func _dead() -> void: pass
 
 
 func _movement() -> void:
@@ -80,3 +84,11 @@ func _exit_attack() -> void:
 	if in_attack:
 		in_attack = false
 		attackCollision.disabled = true
+		
+func _take_damage(damage: int) -> void:
+	hp -= damage
+	print(hp)
+	if hp <= 0:
+		_change_state(StateMachine.DEAD)
+	else:
+		_change_state(StateMachine.HURT)
