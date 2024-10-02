@@ -18,12 +18,12 @@ data = PackedVector3Array(-2, 0.5, 0.05, 2, 0.5, 0.05, -2, -0.5, 0.05, 2, 0.5, 0
 [node name="Node3D" type="Node3D"]
 
 [node name="Cenario" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.561, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
 texture_filter = 0
 texture = ExtResource("1_ba5qy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.610514, 1.89305, 1.73634)
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.610514, 1.83862, 1.73634)
 projection = 1
 current = true
 
@@ -51,7 +51,7 @@ shape = SubResource("ConcavePolygonShape3D_v6iyh")
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21, 0.617907, -0.658776)
 
 [node name="Parede2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04879, 0.220472)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.049, 0.3)
 visible = false
 mesh = SubResource("BoxMesh_54bg6")
 

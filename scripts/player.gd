@@ -9,6 +9,9 @@ func _idle() -> void:
 		
 	if jump:
 		_change_state(StateMachine.JUMP)
+		
+	if attack:
+		_change_state(StateMachine.ATTACK)
 
 func _walk() -> void:
 	_enter_state("walk")
@@ -20,6 +23,9 @@ func _walk() -> void:
 		
 	if jump:
 		_change_state(StateMachine.JUMP)
+	
+	if attack:
+		_change_state(StateMachine.ATTACK)
 
 func _jump() -> void:
 	_movement()
@@ -41,3 +47,40 @@ func _jump() -> void:
 		else:
 			await get_tree().create_timer(0.05).timeout
 			_change_state(StateMachine.IDLE)
+			
+func _attack() -> void:
+	_enter_state("attack")
+	_stop_movement()
+	if animated_sprite.frame == 1:
+		_enter_attack()
+	if animated_sprite.frame >= 3:
+		_exit_attack()
+	if animated_sprite.frame >= 4:
+		_change_state(StateMachine.IDLE)
+
+	if animated_sprite.frame >= 1 and attack:
+		_change_state(StateMachine.ATTACK2)
+		
+func _attack2() -> void:
+	_enter_state("attack2")
+	if animated_sprite.frame == 1:
+		_enter_attack()
+	if animated_sprite.frame >= 3:
+		_exit_attack()
+	_stop_movement()
+	
+	if animated_sprite.frame >= 3:
+		_change_state(StateMachine.IDLE)
+
+	if animated_sprite.frame >= 0 and attack:
+		_change_state(StateMachine.ATTACK3)
+		
+func _attack3() -> void:
+	_enter_state("attack3")
+	if animated_sprite.frame == 1:
+		_enter_attack()
+	_stop_movement()
+	
+	if animated_sprite.frame >= 5:
+		_exit_attack()
+		_change_state(StateMachine.IDLE)

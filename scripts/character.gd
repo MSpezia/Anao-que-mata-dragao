@@ -1,6 +1,6 @@
 class_name Character extends CharacterBody3D
 
-enum StateMachine { IDLE , WALK, JUMP, ATACK}
+enum StateMachine { IDLE , WALK, JUMP, ATTACK, ATTACK2, ATTACK3}
 
 
 @export var speed := 0.65
@@ -9,20 +9,27 @@ var gravity : float = 9.8
 
 var state : StateMachine = StateMachine.IDLE
 var enter_state : bool = true
+var in_attack : bool = false
 
 @onready var animated_sprite = $AnimatedSprite3D
-
+@onready var attackCollision: CollisionShape3D =  $Attack/AttackHitbox
 var input : Vector2:
 	get: return Input.get_vector("ui_left","ui_right","ui_up", "ui_down") * speed
-	
+
 var jump : bool:
 	get: return Input.is_action_just_pressed("ui_accept")
+
+var attack : bool:
+	get: return Input.is_action_just_pressed("ui_attack")
 
 func _physics_process(delta: float) -> void:
 	match state:
 		StateMachine.IDLE: _idle()
 		StateMachine.WALK: _walk()
 		StateMachine.JUMP: _jump()
+		StateMachine.ATTACK: _attack()
+		StateMachine.ATTACK2: _attack2()
+		StateMachine.ATTACK3: _attack3()
 		
 	_set_gravity(delta)
 	move_and_slide()
@@ -42,6 +49,10 @@ func _change_state(new_state: StateMachine) -> void:
 func _idle() -> void: pass
 func _walk() -> void: pass
 func _jump() -> void: pass
+func _attack() -> void: pass
+func _attack2() -> void: pass
+func _attack3() -> void: pass
+
 
 func _movement() -> void:
 	velocity.x = input.x
@@ -54,8 +65,18 @@ func _stop_movement() -> void:
 func _flip() -> void:
 	if input.x:
 		animated_sprite.flip_h = true if input.x < 0 else false
+		$Attack.scale.x = -1 if input.x < 0 else 1
 		
 func _set_gravity(delta : float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
+func _enter_attack() -> void:
+	if not in_attack:
+		in_attack = true
+		attackCollision.disabled = false
+		
+func _exit_attack() -> void:
+	if in_attack:
+		in_attack = false
+		attackCollision.disabled = true
