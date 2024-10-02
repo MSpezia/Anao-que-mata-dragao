@@ -1,6 +1,6 @@
 class_name Character extends CharacterBody3D
 
-enum StateMachine { IDLE , WALK, JUMP}
+enum StateMachine { IDLE , WALK, JUMP, ATACK}
 
 
 @export var speed := 0.65
