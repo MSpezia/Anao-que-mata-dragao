@@ -1,8 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdrwrgu880nc2"]
+[gd_scene load_steps=13 format=3 uid="uid://bdrwrgu880nc2"]
 
 [ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://Sprites/Cenário provisório.png" id="1_ba5qy"]
 [ext_resource type="PackedScene" uid="uid://wpcf6xa2nnpu" path="res://atores/Player.tscn" id="2_n6bd1"]
 [ext_resource type="Script" path="res://Cenas/damage.gd" id="3_n0flf"]
+[ext_resource type="Script" path="res://scripts/ui_main.gd" id="4_mfwdc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3odh"]
+bg_color = Color(1, 0.272832, 0.223668, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_comcw"]
+bg_color = Color(0, 0.536911, 0.179694, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vmd1h"]
 size = Vector2(4, 10)
@@ -21,6 +28,26 @@ data = PackedVector3Array(-2, 0.5, 0.05, 2, 0.5, 0.05, -2, -0.5, 0.05, 2, 0.5, 0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6g75n"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="UIMain" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_mfwdc")
+
+[node name="Player" type="Control" parent="UIMain"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 385.0
+offset_bottom = 50.0
+
+[node name="Health" type="ProgressBar" parent="UIMain/Player"]
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 365.0
+offset_bottom = 39.0
+theme_override_styles/background = SubResource("StyleBoxFlat_r3odh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_comcw")
+value = 100.0
+show_percentage = false
 
 [node name="Cenario" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)

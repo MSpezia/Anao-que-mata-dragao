@@ -293,7 +293,7 @@ shape = SubResource("BoxShape3D_1vbou")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_l12ec")
-animation = &"hurt"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="Attack" type="Area3D" parent="."]

@@ -13,6 +13,8 @@ var in_attack : bool = false
 
 @onready var animated_sprite = $AnimatedSprite3D
 @onready var attackCollision: CollisionShape3D =  $Attack/AttackHitbox
+@onready var ui_main: UIMain = %UIMain
+
 var input : Vector2:
 	get: return Input.get_vector("ui_left","ui_right","ui_up", "ui_down") * speed
 
@@ -87,7 +89,7 @@ func _exit_attack() -> void:
 		
 func _take_damage(damage: int) -> void:
 	hp -= damage
-	print(hp)
+	ui_main.update_health(hp)
 	if hp <= 0:
 		_change_state(StateMachine.DEAD)
 	else:
