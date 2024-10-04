@@ -1,4 +1,4 @@
-class_name Character extends CharacterBody3D
+class_name PlayerBase extends CharacterBody3D
 
 enum StateMachine { IDLE , WALK, JUMP, ATTACK, ATTACK2, ATTACK3, HURT, DEAD}
 
@@ -94,3 +94,8 @@ func _take_damage(damage: int) -> void:
 		_change_state(StateMachine.DEAD)
 	else:
 		_change_state(StateMachine.HURT)
+		
+func heal(amount: int) -> void:
+	hp += amount
+	hp = min(hp, 100) # Garante que a saúde não exceda 100
+	ui_main.update_health(hp)

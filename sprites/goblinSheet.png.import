@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c48ioebxkdcpx"
-path="res://.godot/imported/Cenário provisório.png-2305770804c0455cf68d6dad67424524.ctex"
+uid="uid://bwsm5ata8jui4"
+path="res://.godot/imported/goblinSheet.png-1c6f5ef50fc468b45daca864e5249cfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Cenário provisório.png"
-dest_files=["res://.godot/imported/Cenário provisório.png-2305770804c0455cf68d6dad67424524.ctex"]
+source_file="res://sprites/goblinSheet.png"
+dest_files=["res://.godot/imported/goblinSheet.png-1c6f5ef50fc468b45daca864e5249cfa.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

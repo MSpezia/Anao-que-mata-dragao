@@ -1,7 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://wpcf6xa2nnpu"]
+[gd_scene load_steps=45 format=3 uid="uid://wpcf6xa2nnpu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hvv0j"]
-[ext_resource type="Texture2D" uid="uid://dk274ymx2wfxk" path="res://Sprites/playerSheet.png" id="2_r2ofq"]
+[ext_resource type="Texture2D" uid="uid://dk274ymx2wfxk" path="res://sprites/playerSheet.png" id="2_r2ofq"]
+[ext_resource type="Texture2D" uid="uid://qhkm3g3ou6kg" path="res://sprites/playerDeath.png" id="3_wac4i"]
+[ext_resource type="Texture2D" uid="uid://deu1n6iep245g" path="res://sprites/playerHit.png" id="4_pybnq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vbou"]
 size = Vector3(0.0858868, 0.130755, 0.0520996)
@@ -66,9 +68,33 @@ region = Rect2(559, 72, 43, 36)
 atlas = ExtResource("2_r2ofq")
 region = Rect2(602, 72, 43, 36)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceyab"]
+atlas = ExtResource("3_wac4i")
+region = Rect2(0, 0, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk4r4"]
+atlas = ExtResource("3_wac4i")
+region = Rect2(43, 0, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcmuo"]
+atlas = ExtResource("3_wac4i")
+region = Rect2(86, 0, 43, 36)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ahpa"]
 atlas = ExtResource("2_r2ofq")
 region = Rect2(43, 108, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc5nh"]
+atlas = ExtResource("4_pybnq")
+region = Rect2(0, 0, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqrgw"]
+atlas = ExtResource("4_pybnq")
+region = Rect2(43, 0, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w02nn"]
+atlas = ExtResource("4_pybnq")
+region = Rect2(86, 0, 43, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ins8"]
 atlas = ExtResource("2_r2ofq")
@@ -192,8 +218,17 @@ animations = [{
 "name": &"attack3",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ceyab")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_bk4r4")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_gcmuo")
+}],
+"loop": false,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -206,10 +241,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": null
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_dc5nh")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_jqrgw")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_w02nn")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -293,7 +334,7 @@ shape = SubResource("BoxShape3D_1vbou")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_l12ec")
-animation = &"attack"
+animation = &"dead"
 autoplay = "idle"
 
 [node name="Attack" type="Area3D" parent="."]

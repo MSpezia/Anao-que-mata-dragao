@@ -1,4 +1,4 @@
-class_name Player extends Character
+class_name Player extends PlayerBase
 
 func _idle() -> void:
 	_enter_state("idle")
@@ -97,7 +97,7 @@ func _hurt() -> void:
 func _dead() -> void:
 	if enter_state:
 		enter_state = false
-		animated_sprite.play("hurt")
+		animated_sprite.play("dead")
 		_stop_movement()
 		print("morreu")
 		

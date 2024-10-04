@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgfcd60jf7y6s"]
+
+[ext_resource type="Texture2D" uid="uid://bip6o1imb53jn" path="res://sprites/cerveja.png" id="1_fujmm"]
+[ext_resource type="Script" path="res://scripts/drink.gd" id="1_rgdlo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fg84u"]
+size = Vector3(0.113831, 0.108887, 0.039856)
+
+[node name="Drink" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000823975, 0.0552274, 0)
+script = ExtResource("1_rgdlo")
+
+[node name="Hitbox" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_fg84u")
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000823975, 0.0047726, 0)
+texture_filter = 0
+texture = ExtResource("1_fujmm")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

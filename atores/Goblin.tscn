@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://d02c4ggx4ko4k"]
+
+[ext_resource type="Texture2D" uid="uid://bwsm5ata8jui4" path="res://sprites/goblinSheet.png" id="1_7gwvo"]
+[ext_resource type="Script" path="res://scripts/goblin.gd" id="1_j34jf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jopdv"]
+size = Vector3(0.10984, 0.120087, 0.096405)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_junw6"]
+atlas = ExtResource("1_7gwvo")
+region = Rect2(0, 0, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsrbg"]
+atlas = ExtResource("1_7gwvo")
+region = Rect2(43, 0, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imthy"]
+atlas = ExtResource("1_7gwvo")
+region = Rect2(86, 0, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52d4g"]
+atlas = ExtResource("1_7gwvo")
+region = Rect2(129, 0, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gmfl"]
+atlas = ExtResource("1_7gwvo")
+region = Rect2(172, 0, 43, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4frow"]
+atlas = ExtResource("1_7gwvo")
+region = Rect2(215, 0, 43, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gs1d2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_junw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsrbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imthy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52d4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gmfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4frow")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[node name="Goblin" type="CharacterBody3D"]
+script = ExtResource("1_j34jf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00955582, 0.060257, 0.00450134)
+shape = SubResource("BoxShape3D_jopdv")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0704497, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_gs1d2")
+animation = &"idle"
+frame = 1
+frame_progress = 0.243695
