@@ -1,25 +1,33 @@
 class_name EnemyBase extends CharacterBody3D
 
-enum EnemyState {IDLE, WALK}
+enum EnemyState {IDLE, WALK, ATTACK}
 
-@export var strenght = 5
+@export var strength = 10
 @export var hp = 30
 @export var speed = 0.5
+@export var distance_attack = 0.1
 var gravity : float = 9.8
 var death : bool
 var walk_timer : float
 var face_right : bool
 var animation : String
+var in_attack: bool
 @onready var animated_sprite : AnimatedSprite3D = $AnimatedSprite3D
 @onready var timer_state : Timer = $Timer
 @onready var player : CharacterBody3D = %Player
+@onready var attack : Area3D = $Attack
+@onready var attack_collision: CollisionShape3D = $Attack/Collision
 var state : EnemyState = EnemyState.IDLE	
 var enter_state : bool = true
+
+func _ready() -> void:
+	attack.body_entered.connect(func(player: Player): player._take_damage(strength))
 
 func _physics_process(delta: float) -> void:
 	match state:
 		EnemyState.IDLE: _idle()
 		EnemyState.WALK: _walk(delta)
+		EnemyState.ATTACK: _attack()
 		
 		
 func _enter_state() -> void:
@@ -35,6 +43,7 @@ func _change_state(new_state: EnemyState) -> void:
 
 func _idle() -> void: pass
 func _walk(delta: float) -> void: pass
+func _attack() -> void: pass
 
 func _stop_movement() -> void:
 	velocity.x = 0
@@ -50,10 +59,22 @@ func _flip() -> void:
 	face_right = true if player.transform.origin.x > transform.origin.x else false
 	if face_right:
 		animated_sprite.flip_h = true
+		attack.scale.x = -1
 	else:
 		animated_sprite.flip_h = false
+		attack.scale.x = 1
 
 func _set_animation(anim: String) -> void:
 	if animation != anim:
 		animation = anim
 		animated_sprite.play(animation)
+		
+func _enter_attack() -> void:
+	if not in_attack:
+		in_attack = true
+		attack_collision.disabled = false
+		
+func _exit_attack() -> void:
+	if in_attack:
+		in_attack = false
+		attack_collision.disabled = true

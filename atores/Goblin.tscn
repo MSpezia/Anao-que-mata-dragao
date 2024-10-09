@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://d02c4ggx4ko4k"]
+[gd_scene load_steps=12 format=3 uid="uid://d02c4ggx4ko4k"]
 
 [ext_resource type="Texture2D" uid="uid://bwsm5ata8jui4" path="res://sprites/goblinSheet.png" id="1_7gwvo"]
 [ext_resource type="Script" path="res://scripts/goblin.gd" id="1_j34jf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jopdv"]
-size = Vector3(0.10984, 0.120087, 0.0432663)
+size = Vector3(0.0705139, 0.120087, 0.0432663)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_junw6"]
 atlas = ExtResource("1_7gwvo")
@@ -32,6 +32,11 @@ region = Rect2(215, 0, 43, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gs1d2"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_junw6")
@@ -61,17 +66,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqhsd"]
+size = Vector3(0.0657959, 0.118652, 0.0530396)
+
 [node name="Goblin" type="CharacterBody3D"]
 script = ExtResource("1_j34jf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00955582, 0.060257, 0.00172042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000448231, 0.06, 0)
 shape = SubResource("BoxShape3D_jopdv")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0704497, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_gs1d2")
-animation = &"walk"
+animation = &"idle"
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Attack" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape3D" parent="Attack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09, 0.061, 0.005)
+shape = SubResource("BoxShape3D_kqhsd")
+disabled = true

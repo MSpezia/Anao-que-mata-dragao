@@ -324,6 +324,7 @@ animations = [{
 size = Vector3(0.137924, 0.130188, 0.0966187)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_hvv0j")
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
@@ -334,7 +335,7 @@ shape = SubResource("BoxShape3D_1vbou")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_l12ec")
-animation = &"dead"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="Attack" type="Area3D" parent="."]
