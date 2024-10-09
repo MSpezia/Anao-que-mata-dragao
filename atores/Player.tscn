@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://deu1n6iep245g" path="res://sprites/playerHit.png" id="4_pybnq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vbou"]
-size = Vector3(0.0858868, 0.130755, 0.0520996)
+size = Vector3(0.0858868, 0.130755, 0.0329224)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n2iqk"]
 atlas = ExtResource("2_r2ofq")
@@ -327,7 +327,7 @@ size = Vector3(0.137924, 0.130188, 0.0966187)
 script = ExtResource("1_hvv0j")
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339264, 0.0672444, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339264, 0.0672444, 0.000347899)
 shape = SubResource("BoxShape3D_1vbou")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]

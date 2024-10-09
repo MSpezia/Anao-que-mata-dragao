@@ -82,7 +82,8 @@ mesh = SubResource("BoxMesh_54bg6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Parede/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_v6iyh")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_n6bd1")]
+[node name="Player" parent="." instance=ExtResource("2_n6bd1")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21, 0.55, -0.659)
 
 [node name="Parede2" type="MeshInstance3D" parent="."]

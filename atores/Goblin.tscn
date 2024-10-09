@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/goblin.gd" id="1_j34jf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jopdv"]
-size = Vector3(0.10984, 0.120087, 0.096405)
+size = Vector3(0.10984, 0.120087, 0.0432663)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_junw6"]
 atlas = ExtResource("1_7gwvo")
@@ -54,19 +54,24 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
 }]
 
 [node name="Goblin" type="CharacterBody3D"]
 script = ExtResource("1_j34jf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00955582, 0.060257, 0.00450134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00955582, 0.060257, 0.00172042)
 shape = SubResource("BoxShape3D_jopdv")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0704497, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_gs1d2")
-animation = &"idle"
-frame = 1
-frame_progress = 0.243695
+animation = &"walk"
+
+[node name="Timer" type="Timer" parent="."]
