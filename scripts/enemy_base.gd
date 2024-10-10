@@ -1,6 +1,6 @@
 class_name EnemyBase extends CharacterBody3D
 
-enum EnemyState {IDLE, WALK, ATTACK}
+enum EnemyState {IDLE, WALK, ATTACK, HURT, DEAD}
 
 @export var strength = 10
 @export var hp = 30
@@ -19,15 +19,19 @@ var in_attack: bool
 @onready var attack_collision: CollisionShape3D = $Attack/Collision
 var state : EnemyState = EnemyState.IDLE	
 var enter_state : bool = true
+@onready var health_component: HealthComponent = $HealthComponent
 
 func _ready() -> void:
-	attack.body_entered.connect(func(player: Player): player._take_damage(strength))
+	health_component.hp = hp
+	attack.area_entered.connect(func(hitbox: HitboxComponent): hitbox._take_damage(strength))
 
 func _physics_process(delta: float) -> void:
 	match state:
 		EnemyState.IDLE: _idle()
 		EnemyState.WALK: _walk(delta)
 		EnemyState.ATTACK: _attack()
+		EnemyState.HURT: _hurt()
+		EnemyState.DEAD: _dead()
 		
 		
 func _enter_state() -> void:
@@ -44,6 +48,8 @@ func _change_state(new_state: EnemyState) -> void:
 func _idle() -> void: pass
 func _walk(delta: float) -> void: pass
 func _attack() -> void: pass
+func _hurt() -> void: pass
+func _dead() -> void: pass
 
 func _stop_movement() -> void:
 	velocity.x = 0

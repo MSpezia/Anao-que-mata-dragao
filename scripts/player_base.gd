@@ -5,6 +5,7 @@ enum StateMachine { IDLE , WALK, JUMP, ATTACK, ATTACK2, ATTACK3, HURT, DEAD}
 @export var hp = 100
 @export var speed := 0.65
 @export var jump_force := 2.5
+@export var strength = 10
 var gravity : float = 9.8
 
 var state : StateMachine = StateMachine.IDLE
@@ -14,6 +15,7 @@ var in_attack : bool = false
 @onready var animated_sprite = $AnimatedSprite3D
 @onready var attackCollision: CollisionShape3D =  $Attack/AttackHitbox
 @onready var ui_main: UIMain = %UIMain
+@onready var health_component: HealthComponent = $HealthComponent
 
 var input : Vector2:
 	get: return Input.get_vector("ui_left","ui_right","ui_up", "ui_down") * speed
@@ -23,6 +25,13 @@ var jump : bool:
 
 var attack : bool:
 	get: return Input.is_action_just_pressed("ui_attack")
+	
+func _ready() -> void:
+	health_component.hp = hp
+	health_component.on_damage.connect(func(hp: float): _change_state(StateMachine.HURT))
+	health_component.on_dead.connect(func(): _change_state(StateMachine.DEAD))
+	
+	$Attack.area_entered.connect(func(hitbox: HitboxComponent): hitbox._take_damage(strength))
 
 func _physics_process(delta: float) -> void:
 	match state:
@@ -87,15 +96,7 @@ func _exit_attack() -> void:
 		in_attack = false
 		attackCollision.disabled = true
 		
-func _take_damage(damage: int) -> void:
-	hp -= damage
-	ui_main.update_health(hp)
-	if hp <= 0:
-		_change_state(StateMachine.DEAD)
-	else:
-		_change_state(StateMachine.HURT)
-		
 func heal(amount: int) -> void:
-	hp += amount
-	hp = min(hp, 100) # Garante que a saúde não exceda 100
-	ui_main.update_health(hp)
+	health_component.hp += amount
+	health_component.hp = min(health_component.hp, 100) # Garante que a saúde não exceda 100
+	ui_main.update_health(health_component.hp)

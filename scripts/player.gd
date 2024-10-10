@@ -90,6 +90,7 @@ func _hurt() -> void:
 		enter_state = false
 		animated_sprite.play("hurt")
 		_stop_movement()
+		ui_main.update_health(health_component.hp)
 		
 		await get_tree().create_timer(0.5).timeout
 		_change_state(StateMachine.IDLE)
@@ -97,7 +98,8 @@ func _hurt() -> void:
 func _dead() -> void:
 	if enter_state:
 		enter_state = false
-		animated_sprite.play("dead")
 		_stop_movement()
+		animated_sprite.play("dead")
+		ui_main.update_health(health_component.hp)
 		print("morreu")
 		
