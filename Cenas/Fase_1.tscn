@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdrwrgu880nc2"]
+[gd_scene load_steps=13 format=3 uid="uid://bdrwrgu880nc2"]
 
 [ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="1_ba5qy"]
 [ext_resource type="PackedScene" uid="uid://wpcf6xa2nnpu" path="res://atores/Player.tscn" id="2_n6bd1"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="3_aqw04"]
 [ext_resource type="Script" path="res://scripts/ui_main.gd" id="4_mfwdc"]
 [ext_resource type="PackedScene" uid="uid://dgfcd60jf7y6s" path="res://item/Drink.tscn" id="5_22qpw"]
 [ext_resource type="PackedScene" uid="uid://d02c4ggx4ko4k" path="res://atores/Goblin.tscn" id="6_w7dak"]
@@ -53,9 +54,10 @@ texture_filter = 0
 texture = ExtResource("1_ba5qy")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.610514, 1.83862, 1.73634)
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.6, 1.839, 1.736)
 projection = 1
 current = true
+script = ExtResource("3_aqw04")
 
 [node name="Chão" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531642, 2.17157)
