@@ -39,6 +39,16 @@ animations = [{
 "name": &"attack",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_junw6")
@@ -83,7 +93,7 @@ shape = SubResource("BoxShape3D_jopdv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_gs1d2")
-animation = &"idle"
+animation = &"dead"
 
 [node name="Timer" type="Timer" parent="."]
 

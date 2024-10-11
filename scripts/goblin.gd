@@ -56,4 +56,33 @@ func _attack() ->void:
 		_exit_attack()
 		_change_state(EnemyState.IDLE)
 		
+func _hurt() -> void:
+	if enter_state:
+		enter_state = false
+		_set_animation("hurt")
+		timer_state.stop
+		timer_state.wait_time = randf_range(0.5, 1)
+		timer_state.start()
 		
+		await timer_state.timeout
+		_change_state(EnemyState.IDLE)
+		
+func _dead() -> void:
+	if enter_state:
+		enter_state = false
+		_set_animation("dead")
+		collision.disabled = true
+		velocity.x = 1 if player.global_position.x < global_position.x else -1
+		velocity.y = 3
+		velocity.z = 0
+		timer_state.stop()
+		
+		for i in range(8):
+			await get_tree().create_timer(0.1).timeout
+			animated_sprite.hide()
+		
+			await get_tree().create_timer(0.1).timeout
+			animated_sprite.show()
+		
+		queue_free()
+	move_and_slide()

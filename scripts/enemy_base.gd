@@ -20,9 +20,13 @@ var in_attack: bool
 var state : EnemyState = EnemyState.IDLE	
 var enter_state : bool = true
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var collision : CollisionShape3D = $HitboxComponent/HitboxCollision
 
 func _ready() -> void:
 	health_component.hp = hp
+	health_component.on_damage.connect(func(hp: float): _change_state(EnemyState.HURT))
+	health_component.on_dead.connect(func(): _change_state(EnemyState.DEAD))
+	
 	attack.area_entered.connect(func(hitbox: HitboxComponent): hitbox._take_damage(strength))
 
 func _physics_process(delta: float) -> void:
