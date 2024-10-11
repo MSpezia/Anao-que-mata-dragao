@@ -323,7 +323,7 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iku01"]
-size = Vector3(0.137924, 0.130188, 0.0966187)
+size = Vector3(0.137924, 0.130188, 0.325195)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_layer = 2

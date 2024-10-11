@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdrwrgu880nc2"]
+[gd_scene load_steps=14 format=3 uid="uid://bdrwrgu880nc2"]
 
+[ext_resource type="Script" path="res://game_controller.gd" id="1_30ppm"]
 [ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="1_ba5qy"]
 [ext_resource type="PackedScene" uid="uid://wpcf6xa2nnpu" path="res://atores/Player.tscn" id="2_n6bd1"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_aqw04"]
@@ -27,8 +28,13 @@ data = PackedVector3Array(-2, 0.5, 0.05, 2, 0.5, 0.05, -2, -0.5, 0.05, 2, 0.5, 0
 
 [node name="Node3D" type="Node3D"]
 
+[node name="GameController" type="Node" parent="." node_paths=PackedStringArray("_player", "_camera", "_ui_main")]
+script = ExtResource("1_30ppm")
+_player = NodePath("../Player")
+_camera = NodePath("../Camera")
+_ui_main = NodePath("../UIMain")
+
 [node name="UIMain" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
 script = ExtResource("4_mfwdc")
 
 [node name="Player" type="Control" parent="UIMain"]
@@ -80,7 +86,6 @@ mesh = SubResource("BoxMesh_54bg6")
 shape = SubResource("ConcavePolygonShape3D_v6iyh")
 
 [node name="Player" parent="." instance=ExtResource("2_n6bd1")]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21, 0.55, -0.659)
 
 [node name="Parede2" type="MeshInstance3D" parent="."]

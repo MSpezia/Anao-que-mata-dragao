@@ -2,10 +2,10 @@ class_name PlayerBase extends CharacterBody3D
 
 enum StateMachine { IDLE , WALK, JUMP, ATTACK, ATTACK2, ATTACK3, HURT, DEAD}
 
-@export var hp = 100
+@export var hp := 100
 @export var speed := 0.65
 @export var jump_force := 2.5
-@export var strength = 10
+@export var strength := 10
 
 var gravity : float = 9.8
 var state : StateMachine = StateMachine.IDLE
@@ -15,7 +15,7 @@ var camera_adjusted: float = 0.815
 
 @onready var animated_sprite = $AnimatedSprite3D
 @onready var attackCollision: CollisionShape3D =  $Attack/AttackHitbox
-@onready var ui_main: UIMain = %UIMain
+@onready var ui_main: UIMain = GameController.ui_main
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var camera: Camera3D = get_parent().get_node("Camera")
 

@@ -14,7 +14,7 @@ var animation : String
 var in_attack: bool
 @onready var animated_sprite : AnimatedSprite3D = $AnimatedSprite3D
 @onready var timer_state : Timer = $Timer
-@onready var player : CharacterBody3D = %Player
+@onready var player : CharacterBody3D = GameController.player
 @onready var attack : Area3D = $Attack
 @onready var attack_collision: CollisionShape3D = $Attack/Collision
 var state : EnemyState = EnemyState.IDLE	

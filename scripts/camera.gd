@@ -3,7 +3,7 @@ extends Camera3D
 var smooth := 4
 var clamped := -0.4
 
-@onready var player: CharacterBody3D = %Player
+@onready var player: Player = GameController.player
 
 func _process(delta: float) -> void:
 	if position.x < player.position.x:
