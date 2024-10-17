@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdrwrgu880nc2"]
+[gd_scene load_steps=16 format=3 uid="uid://bdrwrgu880nc2"]
 
 [ext_resource type="Script" path="res://game_controller.gd" id="1_30ppm"]
 [ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="1_ba5qy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/ui_main.gd" id="4_mfwdc"]
 [ext_resource type="PackedScene" uid="uid://dgfcd60jf7y6s" path="res://item/Drink.tscn" id="5_22qpw"]
 [ext_resource type="PackedScene" uid="uid://d02c4ggx4ko4k" path="res://atores/Goblin.tscn" id="6_w7dak"]
+[ext_resource type="Script" path="res://scripts/spawn_enemy.gd" id="8_fhf3t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3odh"]
 bg_color = Color(1, 0.272832, 0.223668, 1)
@@ -25,6 +26,9 @@ size = Vector3(4, 1, 0.1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v6iyh"]
 data = PackedVector3Array(-2, 0.5, 0.05, 2, 0.5, 0.05, -2, -0.5, 0.05, 2, 0.5, 0.05, 2, -0.5, 0.05, -2, -0.5, 0.05, 2, 0.5, -0.05, -2, 0.5, -0.05, 2, -0.5, -0.05, -2, 0.5, -0.05, -2, -0.5, -0.05, 2, -0.5, -0.05, 2, 0.5, 0.05, 2, 0.5, -0.05, 2, -0.5, 0.05, 2, 0.5, -0.05, 2, -0.5, -0.05, 2, -0.5, 0.05, -2, 0.5, -0.05, -2, 0.5, 0.05, -2, -0.5, -0.05, -2, 0.5, 0.05, -2, -0.5, 0.05, -2, -0.5, -0.05, 2, 0.5, 0.05, -2, 0.5, 0.05, 2, 0.5, -0.05, -2, 0.5, 0.05, -2, 0.5, -0.05, 2, 0.5, -0.05, -2, -0.5, 0.05, 2, -0.5, 0.05, -2, -0.5, -0.05, 2, -0.5, 0.05, 2, -0.5, -0.05, -2, -0.5, -0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfiha"]
+size = Vector3(0.0942383, 1.41895, 1.20081)
 
 [node name="Node3D" type="Node3D"]
 
@@ -101,11 +105,13 @@ shape = SubResource("ConcavePolygonShape3D_v6iyh")
 [node name="Drink" parent="." instance=ExtResource("5_22qpw")]
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.85, 0.54, 0)
 
-[node name="Goblin" parent="." instance=ExtResource("6_w7dak")]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.4, 0.5, -0.15)
+[node name="SpawnEnemy" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_fhf3t")
+amount = 2
+enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 
-[node name="Goblin2" parent="." instance=ExtResource("6_w7dak")]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, 0.867752, 0.489293, -0.366726)
-
-[node name="Goblin3" parent="." instance=ExtResource("6_w7dak")]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, 0.595525, 0.531642, -0.302549)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
+shape = SubResource("BoxShape3D_bfiha")

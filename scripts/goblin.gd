@@ -22,7 +22,7 @@ func _walk(delta) -> void:
 		_change_state(EnemyState.IDLE)
 		
 	var target_distance = player.transform.origin - transform.origin
-	velocity.x = target_distance.x / abs(target_distance.x)
+	velocity.x = target_distance.x / (abs(target_distance.x) * 2)
 	
 	walk_timer += delta
 	if walk_timer >= randf_range(1,2):
@@ -31,7 +31,7 @@ func _walk(delta) -> void:
 		
 	if abs(target_distance.x) < distance_attack:
 		velocity.x = 0
-		if abs(player.transform.origin.x - transform.origin.x) < 0.2:
+		if abs(player.transform.origin.x - transform.origin.x) < 0.2 and abs(player.transform.origin.z - transform.origin.z) < 0.1:
 			_change_state(EnemyState.ATTACK)
 	
 	if not velocity:
@@ -76,13 +76,6 @@ func _dead() -> void:
 		velocity.y = 3
 		velocity.z = 0
 		timer_state.stop()
-		
-		for i in range(8):
-			await get_tree().create_timer(0.1).timeout
-			animated_sprite.hide()
-		
-			await get_tree().create_timer(0.1).timeout
-			animated_sprite.show()
-		
+		await get_tree().create_timer(1).timeout
 		queue_free()
 	move_and_slide()

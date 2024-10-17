@@ -4,7 +4,6 @@ enum EnemyState {IDLE, WALK, ATTACK, HURT, DEAD}
 
 @export var strength = 10
 @export var hp = 30
-@export var speed = 0.5
 @export var distance_attack = 0.1
 var gravity : float = 9.8
 var death : bool
