@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bdrwrgu880nc2"]
 
 [ext_resource type="Script" path="res://game_controller.gd" id="1_30ppm"]
-[ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="1_ba5qy"]
+[ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://Sprites/Cenário provisório.png" id="1_ba5qy"]
 [ext_resource type="PackedScene" uid="uid://wpcf6xa2nnpu" path="res://atores/Player.tscn" id="2_n6bd1"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_aqw04"]
 [ext_resource type="Script" path="res://scripts/ui_main.gd" id="4_mfwdc"]

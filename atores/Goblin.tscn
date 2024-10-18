@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d02c4ggx4ko4k"]
 
-[ext_resource type="Texture2D" uid="uid://bwsm5ata8jui4" path="res://sprites/goblinSheet.png" id="1_7gwvo"]
+[ext_resource type="Texture2D" uid="uid://bwsm5ata8jui4" path="res://Sprites/goblinSheet.png" id="1_7gwvo"]
 [ext_resource type="Script" path="res://scripts/goblin.gd" id="1_j34jf"]
 [ext_resource type="Script" path="res://scripts/health_component.gd" id="3_nubwd"]
 [ext_resource type="Script" path="res://scripts/hitbox_component.gd" id="4_n58sb"]
