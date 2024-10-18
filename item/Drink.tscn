@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgfcd60jf7y6s"]
 
-[ext_resource type="Texture2D" uid="uid://bip6o1imb53jn" path="res://Sprites/cerveja.png" id="1_fujmm"]
+[ext_resource type="Texture2D" uid="uid://bip6o1imb53jn" path="res://sprites/cerveja.png" id="1_fujmm"]
 [ext_resource type="Script" path="res://scripts/drink.gd" id="1_rgdlo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fg84u"]

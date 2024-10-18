@@ -76,6 +76,7 @@ func _dead() -> void:
 		velocity.y = 3
 		velocity.z = 0
 		timer_state.stop()
+		GameController.level_controller.enemy_death()
 		await get_tree().create_timer(1).timeout
 		queue_free()
 	move_and_slide()

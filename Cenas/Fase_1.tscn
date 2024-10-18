@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdrwrgu880nc2"]
+[gd_scene load_steps=17 format=3 uid="uid://bdrwrgu880nc2"]
 
 [ext_resource type="Script" path="res://game_controller.gd" id="1_30ppm"]
-[ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://Sprites/Cenário provisório.png" id="1_ba5qy"]
+[ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="1_ba5qy"]
+[ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_uxhoy"]
 [ext_resource type="PackedScene" uid="uid://wpcf6xa2nnpu" path="res://atores/Player.tscn" id="2_n6bd1"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_aqw04"]
 [ext_resource type="Script" path="res://scripts/ui_main.gd" id="4_mfwdc"]
@@ -30,13 +31,15 @@ data = PackedVector3Array(-2, 0.5, 0.05, 2, 0.5, 0.05, -2, -0.5, 0.05, 2, 0.5, 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfiha"]
 size = Vector3(0.0942383, 1.41895, 1.20081)
 
-[node name="Node3D" type="Node3D"]
+[node name="Fase 1" type="Node3D"]
+script = ExtResource("1_uxhoy")
 
-[node name="GameController" type="Node" parent="." node_paths=PackedStringArray("_player", "_camera", "_ui_main")]
+[node name="GameController" type="Node" parent="." node_paths=PackedStringArray("_player", "_camera", "_ui_main", "_level_controller")]
 script = ExtResource("1_30ppm")
 _player = NodePath("../Player")
 _camera = NodePath("../Camera")
 _ui_main = NodePath("../UIMain")
+_level_controller = NodePath("..")
 
 [node name="UIMain" type="CanvasLayer" parent="."]
 script = ExtResource("4_mfwdc")
@@ -106,9 +109,11 @@ shape = SubResource("ConcavePolygonShape3D_v6iyh")
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.85, 0.54, 0)
 
 [node name="SpawnEnemy" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.380389, 0, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
+unclocked_at_area = -0.2
 amount = 2
 enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 

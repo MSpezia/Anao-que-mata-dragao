@@ -1,9 +1,9 @@
 [gd_scene load_steps=47 format=3 uid="uid://wpcf6xa2nnpu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hvv0j"]
-[ext_resource type="Texture2D" uid="uid://dk274ymx2wfxk" path="res://Sprites/playerSheet.png" id="2_r2ofq"]
-[ext_resource type="Texture2D" uid="uid://qhkm3g3ou6kg" path="res://Sprites/playerDeath.png" id="3_wac4i"]
-[ext_resource type="Texture2D" uid="uid://deu1n6iep245g" path="res://Sprites/playerHit.png" id="4_pybnq"]
+[ext_resource type="Texture2D" uid="uid://dk274ymx2wfxk" path="res://sprites/playerSheet.png" id="2_r2ofq"]
+[ext_resource type="Texture2D" uid="uid://qhkm3g3ou6kg" path="res://sprites/playerDeath.png" id="3_wac4i"]
+[ext_resource type="Texture2D" uid="uid://deu1n6iep245g" path="res://sprites/playerHit.png" id="4_pybnq"]
 [ext_resource type="Script" path="res://scripts/health_component.gd" id="5_kdd3l"]
 [ext_resource type="Script" path="res://scripts/hitbox_component.gd" id="6_wmbk7"]
 
