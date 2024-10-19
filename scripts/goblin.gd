@@ -1,6 +1,5 @@
 extends EnemyBase
 
-	
 func _idle() -> void:
 	if enter_state:
 		enter_state = false
@@ -72,11 +71,13 @@ func _dead() -> void:
 		enter_state = false
 		_set_animation("dead")
 		collision.disabled = true
+		drop_item()
 		velocity.x = 1 if player.global_position.x < global_position.x else -1
 		velocity.y = 3
 		velocity.z = 0
 		timer_state.stop()
 		GameController.level_controller.enemy_death()
 		await get_tree().create_timer(1).timeout
+
 		queue_free()
 	move_and_slide()
