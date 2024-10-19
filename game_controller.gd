@@ -15,3 +15,4 @@ func _enter_tree() -> void:
 	camera = _camera
 	ui_main = _ui_main
 	level_controller = _level_controller
+	

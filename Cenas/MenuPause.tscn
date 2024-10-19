@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf8ittwei61qg"]
+
+[ext_resource type="Script" path="res://scripts/menu_pause.gd" id="1_n2p4a"]
+
+[node name="Control" type="Control"]
+process_mode = 3
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n2p4a")
+
+[node name="continuar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 301.0
+offset_right = 524.0
+offset_bottom = 401.0
+text = "Continuar"
+
+[node name="sair" type="Button" parent="."]
+layout_mode = 0
+offset_left = 748.0
+offset_top = 304.0
+offset_right = 1048.0
+offset_bottom = 404.0
+text = "Sair"
+
+[connection signal="pressed" from="continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="sair" to="." method="_on_sair_pressed"]

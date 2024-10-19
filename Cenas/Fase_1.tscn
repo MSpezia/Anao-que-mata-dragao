@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdrwrgu880nc2"]
+[gd_scene load_steps=18 format=3 uid="uid://bdrwrgu880nc2"]
 
 [ext_resource type="Script" path="res://game_controller.gd" id="1_30ppm"]
 [ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="1_ba5qy"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dgfcd60jf7y6s" path="res://item/Drink.tscn" id="5_22qpw"]
 [ext_resource type="PackedScene" uid="uid://d02c4ggx4ko4k" path="res://atores/Goblin.tscn" id="6_w7dak"]
 [ext_resource type="Script" path="res://scripts/spawn_enemy.gd" id="8_fhf3t"]
+[ext_resource type="PackedScene" uid="uid://cf8ittwei61qg" path="res://cenas/MenuPause.tscn" id="10_nu8t0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3odh"]
 bg_color = Color(1, 0.272832, 0.223668, 1)
@@ -120,3 +121,9 @@ enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
 shape = SubResource("BoxShape3D_bfiha")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("10_nu8t0")]
+offset_right = 1280.0
+offset_bottom = 720.0
