@@ -1,5 +1,6 @@
 class_name Player extends PlayerBase
 
+
 func _idle() -> void:
 	_enter_state("idle")
 	_stop_movement()
@@ -87,6 +88,7 @@ func _attack3() -> void:
 		
 func _hurt() -> void:
 	if enter_state:
+		_play_sound(SOUNDS[0])
 		enter_state = false
 		animated_sprite.play("hurt")
 		_stop_movement()
@@ -94,12 +96,14 @@ func _hurt() -> void:
 		
 		await get_tree().create_timer(0.5).timeout
 		_change_state(StateMachine.IDLE)
-		
+
 func _dead() -> void:
+	_stop_movement()
 	if enter_state:
 		enter_state = false
-		_stop_movement()
 		animated_sprite.play("dead")
 		ui_main.update_health(health_component.hp)
 		print("morreu")
+		
+		$"../CanvasLayer/Control2".mostrar_menu()
 		

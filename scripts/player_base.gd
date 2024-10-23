@@ -2,6 +2,10 @@ class_name PlayerBase extends CharacterBody3D
 
 enum StateMachine { IDLE , WALK, JUMP, ATTACK, ATTACK2, ATTACK3, HURT, DEAD}
 
+const SOUNDS = [
+	preload("res://audio/413180__micahlg__male_hurt13.ogg")
+]
+
 @export var hp := 100
 @export var speed := 0.65
 @export var jump_force := 2.5
@@ -18,6 +22,7 @@ var camera_adjusted: float = 0.815
 @onready var ui_main: UIMain = GameController.ui_main
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var camera: Camera3D = get_parent().get_node("Camera")
+@onready var audio : AudioStreamPlayer = get_node("AudioStreamPlayer")
 
 var input : Vector2:
 	get: return Input.get_vector("ui_left","ui_right","ui_up", "ui_down") * speed
@@ -36,6 +41,11 @@ func _ready() -> void:
 	$Attack.area_entered.connect(func(hitbox: HitboxComponent): hitbox._take_damage(strength))
 
 func _physics_process(delta: float) -> void:
+	
+	if state == StateMachine.DEAD:
+		_dead()
+		return
+		
 	match state:
 		StateMachine.IDLE: _idle()
 		StateMachine.WALK: _walk()
@@ -44,9 +54,9 @@ func _physics_process(delta: float) -> void:
 		StateMachine.ATTACK2: _attack2()
 		StateMachine.ATTACK3: _attack3()
 		StateMachine.HURT: _hurt()
-		StateMachine.DEAD: _dead()
-		
-		
+		# StateMachine.DEAD: _dead()
+
+
 	position.x = clamp(position.x, camera.position.x - camera_adjusted, camera.clamped + camera_adjusted)
 	_set_gravity(delta)
 	move_and_slide()
@@ -104,3 +114,7 @@ func heal(amount: int) -> void:
 	health_component.hp += amount
 	health_component.hp = min(health_component.hp, 100) # Garante que a saúde não exceda 100
 	ui_main.update_health(health_component.hp)
+	
+func _play_sound(sound) -> void:
+	audio.stream = sound
+	audio.play()

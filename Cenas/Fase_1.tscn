@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdrwrgu880nc2"]
+[gd_scene load_steps=19 format=3 uid="uid://bdrwrgu880nc2"]
 
 [ext_resource type="Script" path="res://game_controller.gd" id="1_30ppm"]
 [ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="1_ba5qy"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dgfcd60jf7y6s" path="res://item/Drink.tscn" id="5_22qpw"]
 [ext_resource type="PackedScene" uid="uid://d02c4ggx4ko4k" path="res://atores/Goblin.tscn" id="6_w7dak"]
 [ext_resource type="Script" path="res://scripts/spawn_enemy.gd" id="8_fhf3t"]
+[ext_resource type="PackedScene" uid="uid://gttj4e2kv6rt" path="res://cenas/MenuGameOver.tscn" id="10_m3ecr"]
 [ext_resource type="PackedScene" uid="uid://cf8ittwei61qg" path="res://cenas/MenuPause.tscn" id="10_nu8t0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3odh"]
@@ -63,7 +64,7 @@ value = 100.0
 show_percentage = false
 
 [node name="Cenario" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 1, 7.73818, 0.5, -1)
 texture_filter = 0
 texture = ExtResource("1_ba5qy")
 
@@ -74,7 +75,7 @@ current = true
 script = ExtResource("3_aqw04")
 
 [node name="Chão" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531642, 2.17157)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531642, 2.17157)
 visible = false
 mesh = SubResource("PlaneMesh_vmd1h")
 
@@ -84,7 +85,7 @@ mesh = SubResource("PlaneMesh_vmd1h")
 shape = SubResource("ConcavePolygonShape3D_2g513")
 
 [node name="Parede" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00262737, 0.992852, -0.871464)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0.00262737, 0.992852, -0.871464)
 visible = false
 mesh = SubResource("BoxMesh_54bg6")
 
@@ -97,7 +98,7 @@ shape = SubResource("ConcavePolygonShape3D_v6iyh")
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21, 0.55, -0.659)
 
 [node name="Parede2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.049, 0.3)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.049, 0.3)
 visible = false
 mesh = SubResource("BoxMesh_54bg6")
 
@@ -110,15 +111,41 @@ shape = SubResource("ConcavePolygonShape3D_v6iyh")
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.85, 0.54, 0)
 
 [node name="SpawnEnemy" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.380389, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.008)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
-unclocked_at_area = -0.2
+unclocked_at_area = 3.0
 amount = 4
 enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
+shape = SubResource("BoxShape3D_bfiha")
+
+[node name="SpawnEnemy2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_fhf3t")
+unclocked_at_area = 5.0
+amount = 4
+enemies = Array[PackedScene]([ExtResource("6_w7dak")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
+shape = SubResource("BoxShape3D_bfiha")
+
+[node name="SpawnEnemy3" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_fhf3t")
+unclocked_at_area = 7.0
+amount = 4
+enemies = Array[PackedScene]([ExtResource("6_w7dak")])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
 shape = SubResource("BoxShape3D_bfiha")
 
@@ -127,3 +154,5 @@ shape = SubResource("BoxShape3D_bfiha")
 [node name="Control" parent="CanvasLayer" instance=ExtResource("10_nu8t0")]
 offset_right = 1280.0
 offset_bottom = 720.0
+
+[node name="Control2" parent="CanvasLayer" instance=ExtResource("10_m3ecr")]

@@ -1,7 +1,7 @@
 extends Camera3D
 
 var smooth := 4
-var clamped := -0.4
+var clamped := 0
 
 @onready var player: Player = GameController.player
 

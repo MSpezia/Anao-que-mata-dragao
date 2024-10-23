@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://gttj4e2kv6rt"]
+
+[ext_resource type="Script" path="res://scripts/menu_game_over.gd" id="1_2egls"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2egls")
+
+[node name="reiniciar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 358.0
+offset_right = 722.0
+offset_bottom = 481.0
+text = "Tentar Novamente"
+
+[node name="sair" type="Button" parent="."]
+layout_mode = 0
+offset_left = 524.0
+offset_top = 508.0
+offset_right = 724.0
+offset_bottom = 630.0
+text = "Sair"
