@@ -64,13 +64,12 @@ value = 100.0
 show_percentage = false
 
 [node name="Cenario" type="Sprite3D" parent="."]
-transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 1, 7.73818, 0.5, -1)
+transform = Transform3D(6, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, 7.73818, 0.5, -1)
 texture_filter = 0
 texture = ExtResource("1_ba5qy")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.6, 1.839, 1.736)
-projection = 1
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.6, 1.26949, 1.09267)
 current = true
 script = ExtResource("3_aqw04")
 
@@ -129,7 +128,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
 unclocked_at_area = 5.0
-amount = 4
+amount = 10
 enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy2"]
