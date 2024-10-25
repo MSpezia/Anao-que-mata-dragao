@@ -94,7 +94,7 @@ func _hurt() -> void:
 		_stop_movement()
 		ui_main.update_health(health_component.hp)
 		
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.2).timeout
 		_change_state(StateMachine.IDLE)
 
 func _dead() -> void:

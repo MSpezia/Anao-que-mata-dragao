@@ -339,6 +339,7 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_l12ec")
 animation = &"attack"
 autoplay = "idle"
+frame_progress = 0.576451
 
 [node name="Attack" type="Area3D" parent="."]
 collision_layer = 0

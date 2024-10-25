@@ -40,20 +40,24 @@ func _walk(delta) -> void:
 		
 	_flip()
 	move_and_slide()
-	
-func _attack() ->void:
+
+func _attack() -> void:
 	if enter_state:
 		enter_state = false
 		_stop_movement()
-		_enter_attack()
 		_set_animation("attack")
 		
 		timer_state.wait_time = 0.5
 		timer_state.start()
+
+	if animated_sprite.frame == 3:
+		_enter_attack() 
+	elif animated_sprite.frame > 4:
+		_exit_attack()  
 		
-		await timer_state.timeout
-		_exit_attack()
+	if animated_sprite.frame >= 5:
 		_change_state(EnemyState.IDLE)
+
 		
 func _hurt() -> void:
 	if enter_state:

@@ -31,4 +31,4 @@ func _set_enemy_random_position() -> Vector3:
 	return new_posisiton
 	
 func _get_camera_position(value: float) -> Vector3:
-	return Vector3(camera.position.x + value, 0.532, randf_range(-0.75,0.27))
+	return Vector3(camera.position.x + value, 0.532, randf_range(-0.75,0.26))

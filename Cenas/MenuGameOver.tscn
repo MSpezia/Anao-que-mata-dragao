@@ -28,9 +28,10 @@ text = "Sair"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 473.0
-offset_top = 169.0
-offset_right = 590.0
-offset_bottom = 193.0
-scale = Vector2(3, 3)
+offset_left = 222.0
+offset_top = 82.0
+offset_right = 1103.0
+offset_bottom = 248.0
+theme_override_colors/default_color = Color(0.996078, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 120
 text = "VOCÊ MORREU"

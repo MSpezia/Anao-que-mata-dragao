@@ -90,7 +90,7 @@ func _exit_attack() -> void:
 		
 func drop_item() -> void:
 	var drop = randi_range(0, 100)
-	if drop <= 25:
+	if drop <= 15:
 		var drink = preload("res://item/Drink.tscn").instantiate()
 		drink.position = position
 		get_parent().add_child(drink)
