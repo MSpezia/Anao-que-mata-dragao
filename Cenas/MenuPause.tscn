@@ -13,18 +13,18 @@ script = ExtResource("1_n2p4a")
 
 [node name="continuar" type="Button" parent="."]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 301.0
-offset_right = 524.0
-offset_bottom = 401.0
+offset_left = 200.0
+offset_top = 300.0
+offset_right = 500.0
+offset_bottom = 400.0
 text = "Continuar"
 
 [node name="sair" type="Button" parent="."]
 layout_mode = 0
-offset_left = 748.0
-offset_top = 304.0
-offset_right = 1048.0
-offset_bottom = 404.0
+offset_left = 800.0
+offset_top = 300.0
+offset_right = 1100.0
+offset_bottom = 400.0
 text = "Sair"
 
 [connection signal="pressed" from="continuar" to="." method="_on_continuar_pressed"]

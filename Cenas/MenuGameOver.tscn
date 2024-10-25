@@ -12,16 +12,25 @@ script = ExtResource("1_2egls")
 
 [node name="reiniciar" type="Button" parent="."]
 layout_mode = 0
-offset_left = 520.0
-offset_top = 358.0
-offset_right = 722.0
-offset_bottom = 481.0
+offset_left = 200.0
+offset_top = 300.0
+offset_right = 500.0
+offset_bottom = 400.0
 text = "Tentar Novamente"
 
 [node name="sair" type="Button" parent="."]
 layout_mode = 0
-offset_left = 524.0
-offset_top = 508.0
-offset_right = 724.0
-offset_bottom = 630.0
+offset_left = 800.0
+offset_top = 300.0
+offset_right = 1100.0
+offset_bottom = 400.0
 text = "Sair"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 169.0
+offset_right = 590.0
+offset_bottom = 193.0
+scale = Vector2(3, 3)
+text = "VOCÊ MORREU"
