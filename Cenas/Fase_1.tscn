@@ -152,7 +152,5 @@ shape = SubResource("BoxShape3D_bfiha")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("10_nu8t0")]
-offset_right = 1280.0
-offset_bottom = 720.0
 
 [node name="Control2" parent="CanvasLayer" instance=ExtResource("10_m3ecr")]
