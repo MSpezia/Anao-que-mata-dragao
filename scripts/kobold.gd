@@ -1,5 +1,7 @@
 extends EnemyBase
 
+var pedra = preload("res://item/pedra.tscn")
+
 func _ready() -> void:
 	super._ready()  
 	hp = 30
@@ -52,17 +54,7 @@ func _attack() -> void:
 		_stop_movement()
 		_set_animation("attack")
 		
-		timer_state.wait_time = 0.5
-		timer_state.start()
-
-	if animated_sprite.frame == 3:
-		_enter_attack() 
-	elif animated_sprite.frame > 4:
-		_exit_attack()  
-		
-	if animated_sprite.frame >= 5:
-		_change_state(EnemyState.IDLE)
-
+		fire_proctile()
 
 func _hurt() -> void:
 	if enter_state:

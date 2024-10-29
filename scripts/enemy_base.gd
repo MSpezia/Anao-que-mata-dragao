@@ -2,7 +2,7 @@ class_name EnemyBase extends CharacterBody3D
 
 enum EnemyState {IDLE, WALK, ATTACK, HURT, DEAD}
 
-@export var strength = 10
+@export var strength = 0
 @export var hp = 30
 @export var distance_attack = 0.1
 var gravity : float = 9.8
@@ -94,3 +94,10 @@ func drop_item() -> void:
 		var drink = preload("res://item/Drink.tscn").instantiate()
 		drink.position = position
 		get_parent().add_child(drink)
+
+func fire_proctile() -> void:
+	var pedra = preload("res://item/pedra.tscn").instantiate()
+	pedra.global_position = global_position
+	get_parent().add_child(pedra)
+	var direction = (player.transform.origin - global_position).normalized()
+	pedra._set_direction(direction)

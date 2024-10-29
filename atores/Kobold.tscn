@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfd8r0uftvitp"]
+
+[ext_resource type="Script" path="res://scripts/kobold.gd" id="1_7ga3n"]
+[ext_resource type="Texture2D" uid="uid://bwsm5ata8jui4" path="res://sprites/goblinSheet.png" id="2_2mj5u"]
+[ext_resource type="Script" path="res://scripts/health_component.gd" id="3_y6tl7"]
+[ext_resource type="Script" path="res://scripts/hitbox_component.gd" id="4_11k4o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jopdv"]
+size = Vector3(0.0705139, 0.120087, 0.0432663)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_junw6"]
+atlas = ExtResource("2_2mj5u")
+region = Rect2(0, 0, 43, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gs1d2"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_junw6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r13te"]
+size = Vector3(0.0657959, 0.118652, 3.30176)
+
+[node name="Kobold" type="CharacterBody3D"]
+collision_layer = 4
+script = ExtResource("1_7ga3n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000448231, 0.06, 0)
+shape = SubResource("BoxShape3D_jopdv")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_gs1d2")
+animation = &"idle"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Attack" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape3D" parent="Attack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09, 0.061, 0.005)
+shape = SubResource("BoxShape3D_r13te")
+disabled = true
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_y6tl7")
+
+[node name="HitboxComponent" type="Area3D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_11k4o")
+health_component = NodePath("../HealthComponent")
+
+[node name="HitboxCollision" type="CollisionShape3D" parent="HitboxComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000448231, 0.06, 0)
+shape = SubResource("BoxShape3D_jopdv")

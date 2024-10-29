@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://j0k1ugg7dlrx"]
+
+[ext_resource type="Script" path="res://item/pedra.gd" id="1_af0o6"]
+[ext_resource type="Texture2D" uid="uid://j1sq3pbduacg" path="res://sprites/pedra.png" id="1_f16ij"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_usdp8"]
+size = Vector3(0.0410156, 0.0310059, 0.285156)
+
+[node name="Pedra" type="Area3D"]
+collision_layer = 3
+collision_mask = 2
+script = ExtResource("1_af0o6")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 0
+texture = ExtResource("1_f16ij")
+
+[node name="HitBox" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_usdp8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
