@@ -56,7 +56,8 @@ func _attack() -> void:
 		timer_state.start()
 
 	if animated_sprite.frame == 3:
-		_enter_attack() 
+		_enter_attack()
+		_play_sound(SOUNDS_GOBLIN[1])
 	elif animated_sprite.frame > 4:
 		_exit_attack()  
 		
@@ -79,6 +80,7 @@ func _dead() -> void:
 	if enter_state:
 		enter_state = false
 		_set_animation("dead")
+		_play_sound(SOUNDS_GOBLIN[0])
 		collision.disabled = true
 		drop_item()
 		velocity.x = 1 if player.global_position.x < global_position.x else -1

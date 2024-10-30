@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj23xochiq5rj"]
+[gd_scene load_steps=3 format=3 uid="uid://cj23xochiq5rj"]
 
 [ext_resource type="Script" path="res://scripts/menu_principal.gd" id="1_gspnb"]
+[ext_resource type="AudioStream" uid="uid://bprglm0a123c2" path="res://audio/761037__lolamoore__uplifting-rhythms-of-positivity-for-happy-moments.mp3" id="2_gq30w"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -28,3 +29,18 @@ offset_top = 375.0
 offset_right = 740.0
 offset_bottom = 525.0
 text = "SAIR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gq30w")
+volume_db = 4.685
+autoplay = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 109.0
+offset_right = 907.0
+offset_bottom = 166.0
+theme_override_font_sizes/normal_font_size = 40
+text = "ANÃO QUE MATA DAGRÃO
+"

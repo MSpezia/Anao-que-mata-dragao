@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://j0k1ugg7dlrx"]
 
-[ext_resource type="Script" path="res://item/pedra.gd" id="1_af0o6"]
+[ext_resource type="Script" path="res://scripts/pedra.gd" id="1_af0o6"]
 [ext_resource type="Texture2D" uid="uid://j1sq3pbduacg" path="res://sprites/pedra.png" id="1_f16ij"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_usdp8"]

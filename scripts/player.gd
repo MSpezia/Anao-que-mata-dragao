@@ -18,7 +18,7 @@ func _walk() -> void:
 	_enter_state("walk")
 	_movement()
 	_flip()
-	
+		
 	if not input:
 		_change_state(StateMachine.IDLE)
 		
@@ -36,6 +36,7 @@ func _jump() -> void:
 		enter_state = false
 		velocity.y = jump_force
 		animated_sprite.play("jump")
+		_play_sound(SOUNDS[2])
 		await get_tree().create_timer(0.2).timeout
 
 	if not is_on_floor():
@@ -54,6 +55,7 @@ func _attack() -> void:
 	_stop_movement()
 	if animated_sprite.frame == 1:
 		_enter_attack()
+		_play_sound(SOUNDS[1])
 	if animated_sprite.frame >= 3:
 		_exit_attack()
 	if animated_sprite.frame >= 4:
@@ -66,6 +68,7 @@ func _attack2() -> void:
 	_enter_state("attack2")
 	if animated_sprite.frame == 1:
 		_enter_attack()
+		_play_sound(SOUNDS[1])
 	if animated_sprite.frame >= 3:
 		_exit_attack()
 	_stop_movement()
@@ -102,6 +105,7 @@ func _dead() -> void:
 	if enter_state:
 		enter_state = false
 		animated_sprite.play("dead")
+		_play_sound(SOUNDS[3])
 		ui_main.update_health(health_component.hp)
 		print("morreu")
 		

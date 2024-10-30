@@ -3,7 +3,10 @@ class_name PlayerBase extends CharacterBody3D
 enum StateMachine { IDLE , WALK, JUMP, ATTACK, ATTACK2, ATTACK3, HURT, DEAD}
 
 const SOUNDS = [
-	preload("res://audio/413180__micahlg__male_hurt13.ogg")
+	preload("res://audio/player_hurt.ogg"),
+	preload("res://audio/swing2.wav"),
+	preload("res://audio/jump.ogg"),
+	preload("res://audio/player_dying.wav")
 ]
 
 @export var hp := 100

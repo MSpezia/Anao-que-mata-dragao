@@ -2,6 +2,11 @@ class_name EnemyBase extends CharacterBody3D
 
 enum EnemyState {IDLE, WALK, ATTACK, HURT, DEAD}
 
+const SOUNDS_GOBLIN = [
+	preload("res://audio/goblin_dead.mp3"),
+	preload("res://audio/swing2.wav")
+]
+
 @export var strength = 0
 @export var hp = 30
 @export var distance_attack = 0.1
@@ -20,6 +25,8 @@ var state : EnemyState = EnemyState.IDLE
 var enter_state : bool = true
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var collision : CollisionShape3D = $HitboxComponent/HitboxCollision
+@onready var projectile_spawn : Marker3D = $projectile_spawn
+@onready var audio : AudioStreamPlayer = get_node("AudioStreamPlayer")
 
 func _ready() -> void:
 	health_component.hp = hp
@@ -90,14 +97,18 @@ func _exit_attack() -> void:
 		
 func drop_item() -> void:
 	var drop = randi_range(0, 100)
-	if drop <= 15:
+	if drop <= 25:
 		var drink = preload("res://item/Drink.tscn").instantiate()
 		drink.position = position
 		get_parent().add_child(drink)
 
-func fire_proctile() -> void:
+func fire_projectile() -> void:
 	var pedra = preload("res://item/pedra.tscn").instantiate()
-	pedra.global_position = global_position
+	pedra.global_position = projectile_spawn.global_transform.origin
 	get_parent().add_child(pedra)
 	var direction = (player.transform.origin - global_position).normalized()
 	pedra._set_direction(direction)
+	
+func _play_sound(sound) -> void:
+	audio.stream = sound
+	audio.play()

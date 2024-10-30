@@ -83,3 +83,6 @@ health_component = NodePath("../HealthComponent")
 [node name="HitboxCollision" type="CollisionShape3D" parent="HitboxComponent"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000448231, 0.06, 0)
 shape = SubResource("BoxShape3D_jopdv")
+
+[node name="projectile_spawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0210266, 0.137085, 0)
