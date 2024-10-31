@@ -9,9 +9,8 @@ var can_attack = true
 var pedra = preload("res://item/pedra.tscn")
 
 func _ready() -> void:
+	set_hp(20)
 	super._ready()
-	hp = 30
-	strength = 10
 	_change_state(EnemyState.WALK)
 
 func _walk(delta: float) -> void:
@@ -38,6 +37,7 @@ func _attack() -> void:
 		enter_state = false
 		_stop_movement()
 		_set_animation("attack")
+		
 		fire_projectile()
 		can_attack = false
 		await get_tree().create_timer(attack_cooldown).timeout

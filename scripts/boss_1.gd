@@ -1,8 +1,9 @@
 extends EnemyBase
 
+
 func _ready() -> void:
-	set_hp(30)
-	strength = 10
+	set_hp(90)
+	strength = 20
 	super._ready()
 
 func _idle() -> void:
@@ -11,10 +12,9 @@ func _idle() -> void:
 		_set_animation("idle")
 		timer_state.wait_time = randf_range(1, 2)
 		timer_state.start()
-		
+
 		await  timer_state.timeout
 		_change_state(EnemyState.WALK)
-		
 
 func _walk(delta) -> void:
 	if enter_state:
@@ -87,8 +87,7 @@ func _dead() -> void:
 		velocity.y = 3
 		velocity.z = 0
 		timer_state.stop()
-		GameController.level_controller.enemy_death()
-		await get_tree().create_timer(1).timeout
+		GameController.level_controller.boss1_defeated()
 
 		queue_free()
 	move_and_slide()

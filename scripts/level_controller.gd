@@ -16,3 +16,8 @@ func _next_area(camera_limit: float) -> void:
 func config_next_area(amount: int, unlocked: float) -> void:
 	enemies = amount
 	unlocked_at_area = unlocked
+	
+func boss1_defeated():
+	print("Chefe derrotado! Avançando para a Fase 2.")
+	var next_level_path = "res://cenas/Fase_2.tscn"
+	get_tree().change_scene_to_file(next_level_path)

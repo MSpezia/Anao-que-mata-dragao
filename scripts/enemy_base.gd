@@ -1,6 +1,6 @@
 class_name EnemyBase extends CharacterBody3D
 
-enum EnemyState {IDLE, WALK, ATTACK, HURT, DEAD}
+enum EnemyState {IDLE, WALK, ATTACK, HURT, DEAD, ACTIVE}
 
 const SOUNDS_GOBLIN = [
 	preload("res://audio/goblin_dead.mp3"),
@@ -8,7 +8,7 @@ const SOUNDS_GOBLIN = [
 ]
 
 @export var strength = 0
-@export var hp = 30
+@export var hp = 0
 @export var distance_attack = 0.1
 var gravity : float = 9.8
 var death : bool
@@ -42,6 +42,8 @@ func _physics_process(delta: float) -> void:
 		EnemyState.ATTACK: _attack()
 		EnemyState.HURT: _hurt()
 		EnemyState.DEAD: _dead()
+		
+		
 		
 		
 func _enter_state() -> void:
@@ -89,7 +91,7 @@ func _enter_attack() -> void:
 	if not in_attack:
 		in_attack = true
 		attack_collision.disabled = false
-		
+
 func _exit_attack() -> void:
 	if in_attack:
 		in_attack = false
@@ -103,6 +105,7 @@ func drop_item() -> void:
 		get_parent().add_child(drink)
 
 func fire_projectile() -> void:
+
 	var pedra = preload("res://item/pedra.tscn").instantiate()
 	pedra.global_position = projectile_spawn.global_transform.origin
 	get_parent().add_child(pedra)
@@ -112,3 +115,13 @@ func fire_projectile() -> void:
 func _play_sound(sound) -> void:
 	audio.stream = sound
 	audio.play()
+
+func set_hp(value: int) -> void:
+	hp = value
+	health_component.hp = hp
+	
+func _on_take_damage(damage: int) -> void:
+	hp -= damage
+	if hp <= 0:
+		state = EnemyState.DEAD
+		get_tree().call_group("controllers", "boss_defeated")

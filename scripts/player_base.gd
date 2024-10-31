@@ -6,7 +6,8 @@ const SOUNDS = [
 	preload("res://audio/player_hurt.ogg"),
 	preload("res://audio/swing2.wav"),
 	preload("res://audio/jump.ogg"),
-	preload("res://audio/player_dying.wav")
+	preload("res://audio/player_dying.wav"),
+	preload("res://audio/swing3.ogg"),
 ]
 
 @export var hp := 100

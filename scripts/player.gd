@@ -83,6 +83,7 @@ func _attack3() -> void:
 	_enter_state("attack3")
 	if animated_sprite.frame == 1:
 		_enter_attack()
+		_play_sound(SOUNDS[4])
 	_stop_movement()
 	
 	if animated_sprite.frame >= 5:
