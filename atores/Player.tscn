@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://wpcf6xa2nnpu"]
+[gd_scene load_steps=49 format=3 uid="uid://wpcf6xa2nnpu"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_hvv0j"]
 [ext_resource type="Texture2D" uid="uid://dk274ymx2wfxk" path="res://sprites/playerSheet.png" id="2_r2ofq"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://deu1n6iep245g" path="res://sprites/playerHit.png" id="4_pybnq"]
 [ext_resource type="Script" path="res://scripts/health_component.gd" id="5_kdd3l"]
 [ext_resource type="Script" path="res://scripts/hitbox_component.gd" id="6_wmbk7"]
+[ext_resource type="Script" path="res://scripts/sombra.gd" id="7_6j0yd"]
+[ext_resource type="Texture2D" uid="uid://dnwndcpqedneu" path="res://sprites/sombra.png" id="7_ak4h3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vbou"]
 size = Vector3(0.0858868, 0.130755, 0.0329224)
@@ -364,3 +366,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339264, 0.0672444, 0.0003
 shape = SubResource("BoxShape3D_1vbou")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("player")]
+texture = ExtResource("7_ak4h3")
+script = ExtResource("7_6j0yd")
+player = NodePath("..")

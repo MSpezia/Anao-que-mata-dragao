@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj23xochiq5rj"]
 
 [ext_resource type="Script" path="res://scripts/menu_principal.gd" id="1_gspnb"]
-[ext_resource type="AudioStream" uid="uid://bprglm0a123c2" path="res://audio/761037__lolamoore__uplifting-rhythms-of-positivity-for-happy-moments.mp3" id="2_gq30w"]
+[ext_resource type="AudioStream" uid="uid://pvt7k8pd7wx8" path="res://audio/Adventure.mp3" id="2_yvme8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -31,7 +31,7 @@ offset_bottom = 525.0
 text = "SAIR"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_gq30w")
+stream = ExtResource("2_yvme8")
 volume_db = 4.685
 autoplay = true
 
