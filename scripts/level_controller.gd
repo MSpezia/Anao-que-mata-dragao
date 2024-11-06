@@ -1,6 +1,5 @@
 class_name LevelController extends Node
 
-
 var enemies := 0
 var unlocked_at_area := 0.0
 

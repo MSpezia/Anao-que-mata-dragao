@@ -1,6 +1,6 @@
 class_name EnemyBase extends CharacterBody3D
 
-enum EnemyState {IDLE, WALK, ATTACK, HURT, DEAD, ACTIVE}
+enum EnemyState {IDLE, WALK, ATTACK, HURT, DEAD}
 
 const SOUNDS_GOBLIN = [
 	preload("res://audio/goblin_dead.mp3"),
