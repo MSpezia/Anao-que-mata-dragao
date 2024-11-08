@@ -21,10 +21,10 @@ func _walk(delta) -> void:
 		enter_state = false
 		timer_state.wait_time = randf_range(1, 3)
 		timer_state.start()
-		
+
 		await  timer_state.timeout
 		_change_state(EnemyState.IDLE)
-		
+
 	var target_distance = player.transform.origin - transform.origin
 	velocity.x = target_distance.x / (abs(target_distance.x) * 2)
 	
@@ -70,7 +70,6 @@ func _hurt() -> void:
 		enter_state = false
 		_set_animation("hurt")
 		timer_state.stop
-		timer_state.wait_time = randf_range(0.3, 0.6)
 		timer_state.start()
 		
 		await timer_state.timeout

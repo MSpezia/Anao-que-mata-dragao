@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dfsfplk2adinu"]
+[gd_scene load_steps=22 format=3 uid="uid://dfsfplk2adinu"]
 
 [ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_rwfyf"]
 [ext_resource type="Script" path="res://game_controller.gd" id="2_kqm7x"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/spawn_enemy.gd" id="9_srb6i"]
 [ext_resource type="PackedScene" uid="uid://cfd8r0uftvitp" path="res://atores/Kobold.tscn" id="11_yyk1s"]
 [ext_resource type="PackedScene" uid="uid://cf8ittwei61qg" path="res://cenas/MenuPause.tscn" id="12_1glay"]
+[ext_resource type="AudioStream" uid="uid://du0u2qrtg6mo4" path="res://audio/bgm_action_4.mp3" id="13_a5bqp"]
 [ext_resource type="PackedScene" uid="uid://gttj4e2kv6rt" path="res://cenas/MenuGameOver.tscn" id="13_ypssw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3odh"]
@@ -175,3 +176,8 @@ shape = SubResource("BoxShape3D_bfiha")
 [node name="Control" parent="CanvasLayer" instance=ExtResource("12_1glay")]
 
 [node name="Control2" parent="CanvasLayer" instance=ExtResource("13_ypssw")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_a5bqp")
+volume_db = -10.0
+autoplay = true

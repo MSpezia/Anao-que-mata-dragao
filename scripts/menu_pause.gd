@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	hide()
+	$menu.pressed.connect(_on_menu_pressed)
 
 func continuar():
 	get_tree().paused = false
@@ -22,6 +23,10 @@ func _on_continuar_pressed():
 
 func _on_sair_pressed():
 	get_tree().quit()
+
+func _on_menu_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://cenas/MenuPrincipal.tscn")
 
 func _process(delta):
 	Esc()

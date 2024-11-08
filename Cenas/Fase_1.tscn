@@ -221,7 +221,9 @@ stream = ExtResource("18_py83u")
 volume_db = -10.0
 autoplay = true
 
-[node name="pedro" type="Sprite3D" parent="."]
+[node name="Node3D2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.38039, 0.397952, -0.974593)
+
+[node name="pedro" type="Sprite3D" parent="Node3D2"]
 texture_filter = 0
 texture = ExtResource("15_mlyws")
