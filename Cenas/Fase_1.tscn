@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://wpcf6xa2nnpu" path="res://atores/Player.tscn" id="2_n6bd1"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="3_aqw04"]
 [ext_resource type="Script" path="res://scripts/ui_main.gd" id="4_mfwdc"]
+[ext_resource type="Texture2D" uid="uid://s6bw2ym060ru" path="res://sprites/hpOutline.png" id="4_qh7wr"]
 [ext_resource type="PackedScene" uid="uid://dgfcd60jf7y6s" path="res://item/Drink.tscn" id="5_22qpw"]
 [ext_resource type="PackedScene" uid="uid://p1lwcpw08oc" path="res://cenas/tiles_fases1.tscn" id="5_tgukn"]
+[ext_resource type="Texture2D" uid="uid://b1qyvb22ojkov" path="res://sprites/hpInfill.png" id="5_w1ke8"]
 [ext_resource type="PackedScene" uid="uid://d02c4ggx4ko4k" path="res://atores/Goblin.tscn" id="6_w7dak"]
 [ext_resource type="Script" path="res://scripts/spawn_enemy.gd" id="8_fhf3t"]
 [ext_resource type="PackedScene" uid="uid://gttj4e2kv6rt" path="res://cenas/MenuGameOver.tscn" id="10_m3ecr"]
@@ -19,12 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://bgsv5x1rxma67" path="res://sprites/midground.png" id="15_trfxh"]
 [ext_resource type="Texture2D" uid="uid://xtmbetd6y3nv" path="res://sprites/background.png" id="16_mlxwt"]
 [ext_resource type="AudioStream" uid="uid://0yvjgyty4yw3" path="res://audio/bgm_action_3.mp3" id="18_py83u"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3odh"]
-bg_color = Color(1, 0.272832, 0.223668, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_comcw"]
-bg_color = Color(0, 0.536911, 0.179694, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h4eg3"]
 viewport_path = NodePath("Node3D/SubViewport")
@@ -64,17 +60,16 @@ offset_right = 385.0
 offset_bottom = 50.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Health" type="ProgressBar" parent="UIMain/Player"]
+[node name="Health" type="TextureProgressBar" parent="UIMain/Player"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 12.0
-offset_right = 365.0
-offset_bottom = 39.0
-theme_override_styles/background = SubResource("StyleBoxFlat_r3odh")
-theme_override_styles/fill = SubResource("StyleBoxFlat_comcw")
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 247.0
+offset_bottom = 71.0
 value = 100.0
-show_percentage = false
-metadata/_edit_use_anchors_ = true
+texture_under = ExtResource("4_qh7wr")
+texture_progress = ExtResource("5_w1ke8")
+texture_progress_offset = Vector2(42, 21)
 
 [node name="Cenario" type="Sprite3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, 7.73711, 0.551879, -1.02439)
@@ -142,7 +137,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, 0.0518789, -0.01
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
-unclocked_at_area = 3.0
+unclocked_at_area = 2.0
 amount = 4
 enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 
@@ -155,7 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99893, 0.0518789, -0.024394
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
-unclocked_at_area = 5.0
+unclocked_at_area = 4.0
 amount = 6
 enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 
@@ -168,7 +163,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.99893, 0.0518789, -0.024394
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
-unclocked_at_area = 7.0
+unclocked_at_area = 6.0
 amount = 10
 enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 
