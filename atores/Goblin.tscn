@@ -184,8 +184,7 @@ shape = SubResource("BoxShape3D_jopdv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_gs1d2")
-animation = &"walk"
-frame_progress = 0.139811
+animation = &"hurt"
 
 [node name="Timer" type="Timer" parent="."]
 

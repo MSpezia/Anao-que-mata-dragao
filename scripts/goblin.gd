@@ -70,7 +70,7 @@ func _hurt() -> void:
 		enter_state = false
 		_set_animation("hurt")
 		timer_state.stop
-		timer_state.wait_time = randf_range(0.3, 0.6)
+		timer_state.wait_time = 0.2
 		timer_state.start()
 		
 		await timer_state.timeout

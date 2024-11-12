@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/drink.gd" id="1_rgdlo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fg84u"]
-size = Vector3(0.113831, 0.108887, 0.039856)
+size = Vector3(0.140869, 0.144775, 0.354492)
 
 [node name="Drink" type="Node3D"]
 

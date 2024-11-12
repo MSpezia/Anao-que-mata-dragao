@@ -218,7 +218,7 @@ texture = ExtResource("16_mlxwt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_py83u")
-volume_db = -10.0
+volume_db = -25.0
 autoplay = true
 
 [node name="Node3D2" type="Node3D" parent="."]
