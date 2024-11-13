@@ -29,4 +29,3 @@ func load_progress() -> int:
 		file.close()
 		return save_data.get("fase", 1)
 	return 1
-	

@@ -86,7 +86,7 @@ func _set_animation(anim: String) -> void:
 	if animation != anim:
 		animation = anim
 		animated_sprite.play(animation)
-		
+
 func _enter_attack() -> void:
 	if not in_attack:
 		in_attack = true

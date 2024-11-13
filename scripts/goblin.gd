@@ -64,7 +64,6 @@ func _attack() -> void:
 	if animated_sprite.frame >= 5:
 		_change_state(EnemyState.IDLE)
 
-
 func _hurt() -> void:
 	if enter_state:
 		enter_state = false
@@ -72,10 +71,12 @@ func _hurt() -> void:
 		timer_state.stop
 		timer_state.wait_time = 0.2
 		timer_state.start()
-		
+		velocity.x = 0.1 if player.global_position.x < global_position.x else -0.1
+		velocity.z = 0
 		await timer_state.timeout
 		_change_state(EnemyState.IDLE)
-		
+	move_and_slide()
+
 func _dead() -> void:
 	if enter_state:
 		enter_state = false

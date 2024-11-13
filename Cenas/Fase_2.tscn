@@ -3,8 +3,10 @@
 [ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_rwfyf"]
 [ext_resource type="Script" path="res://game_controller.gd" id="2_kqm7x"]
 [ext_resource type="Script" path="res://scripts/ui_main.gd" id="3_ny686"]
+[ext_resource type="Texture2D" uid="uid://s6bw2ym060ru" path="res://sprites/hpOutline.png" id="4_c036f"]
 [ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="4_l8bm1"]
 [ext_resource type="PackedScene" uid="uid://p1lwcpw08oc" path="res://cenas/tiles_fases1.tscn" id="5_huayl"]
+[ext_resource type="Texture2D" uid="uid://b1qyvb22ojkov" path="res://sprites/hpInfill.png" id="5_qwio0"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="6_7b4q3"]
 [ext_resource type="PackedScene" uid="uid://wpcf6xa2nnpu" path="res://atores/Player.tscn" id="7_anuuo"]
 [ext_resource type="PackedScene" uid="uid://dgfcd60jf7y6s" path="res://item/Drink.tscn" id="8_m31c1"]
@@ -13,12 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://cf8ittwei61qg" path="res://cenas/MenuPause.tscn" id="12_1glay"]
 [ext_resource type="AudioStream" uid="uid://du0u2qrtg6mo4" path="res://audio/bgm_action_4.mp3" id="13_a5bqp"]
 [ext_resource type="PackedScene" uid="uid://gttj4e2kv6rt" path="res://cenas/MenuGameOver.tscn" id="13_ypssw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3odh"]
-bg_color = Color(1, 0.272832, 0.223668, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_comcw"]
-bg_color = Color(0, 0.536911, 0.179694, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h4eg3"]
 viewport_path = NodePath("Node3D/SubViewport")
@@ -56,17 +52,17 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 385.0
 offset_bottom = 50.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Health" type="ProgressBar" parent="UIMain/Player"]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 12.0
-offset_right = 365.0
-offset_bottom = 39.0
-theme_override_styles/background = SubResource("StyleBoxFlat_r3odh")
-theme_override_styles/fill = SubResource("StyleBoxFlat_comcw")
+[node name="Health" type="TextureProgressBar" parent="UIMain/Player"]
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 247.0
+offset_bottom = 71.0
 value = 100.0
-show_percentage = false
+texture_under = ExtResource("4_c036f")
+texture_progress = ExtResource("5_qwio0")
+texture_progress_offset = Vector2(42, 21)
 
 [node name="Cenario" type="Sprite3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, 7.73818, 0.5, -1)

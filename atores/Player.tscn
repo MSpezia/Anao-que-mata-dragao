@@ -352,6 +352,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146568, 0.0714417, 0)
 shape = SubResource("BoxShape3D_iku01")
 disabled = true
 
+[node name="AttackHitbox2" type="CollisionShape3D" parent="Attack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146568, 0.0714417, 0)
+shape = SubResource("BoxShape3D_iku01")
+disabled = true
+
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("5_kdd3l")
 
