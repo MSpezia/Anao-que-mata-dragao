@@ -223,6 +223,29 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_e1kdm")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_xdkej")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_44hyx")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_o33q8")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_x16ub")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_mdfqm")
+}],
+"loop": false,
+"name": &"block",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 0.2,
 "texture": SubResource("AtlasTexture_ceyab")
 }, {
@@ -330,6 +353,10 @@ size = Vector3(0.137924, 0.130188, 0.325195)
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_hvv0j")
+hp = null
+speed = null
+jump_force = null
+strength = null
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339264, 0.0672444, 0.000347899)
@@ -339,20 +366,14 @@ shape = SubResource("BoxShape3D_1vbou")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_l12ec")
-animation = &"attack"
+animation = &"block"
 autoplay = "idle"
-frame_progress = 0.576451
 
 [node name="Attack" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 4
 
 [node name="AttackHitbox" type="CollisionShape3D" parent="Attack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146568, 0.0714417, 0)
-shape = SubResource("BoxShape3D_iku01")
-disabled = true
-
-[node name="AttackHitbox2" type="CollisionShape3D" parent="Attack"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146568, 0.0714417, 0)
 shape = SubResource("BoxShape3D_iku01")
 disabled = true
@@ -377,3 +398,10 @@ texture_filter = 0
 texture = ExtResource("7_ak4h3")
 script = ExtResource("7_6j0yd")
 player = NodePath("..")
+
+[node name="block_area" type="Area3D" parent="."]
+
+[node name="block" type="CollisionShape3D" parent="block_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146568, 0.0714417, 0)
+shape = SubResource("BoxShape3D_iku01")
+disabled = true

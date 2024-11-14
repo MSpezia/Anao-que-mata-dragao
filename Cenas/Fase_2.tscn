@@ -55,6 +55,7 @@ offset_bottom = 50.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Health" type="TextureProgressBar" parent="UIMain/Player"]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 15.0
 offset_right = 247.0
@@ -111,6 +112,10 @@ shape = SubResource("ConcavePolygonShape3D_v6iyh")
 
 [node name="Player" parent="." instance=ExtResource("7_anuuo")]
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21, 0.55, -0.659)
+hp = null
+speed = null
+jump_force = null
+strength = null
 
 [node name="Parede2" type="MeshInstance3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00998, 0.271098)

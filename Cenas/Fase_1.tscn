@@ -118,6 +118,10 @@ shape = SubResource("ConcavePolygonShape3D_v6iyh")
 
 [node name="Player" parent="." instance=ExtResource("2_n6bd1")]
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21107, 0.601879, -0.683394)
+hp = null
+speed = null
+jump_force = null
+strength = null
 
 [node name="Parede2" type="MeshInstance3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, 1.06186, 0.246704)

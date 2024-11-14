@@ -19,7 +19,9 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func _on_body_entered(body) -> void:
-	if body is Player:
-		body.get_node("HealthComponent").take_damage(10)
+	if body.is_in_group("block_area"):
 		queue_free()
-		
+	else:
+		if body is Player:
+			body.get_node("HealthComponent").take_damage(10)
+			queue_free()
