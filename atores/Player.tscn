@@ -353,10 +353,6 @@ size = Vector3(0.137924, 0.130188, 0.325195)
 [node name="CharacterBody3D" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_hvv0j")
-hp = null
-speed = null
-jump_force = null
-strength = null
 
 [node name="Hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339264, 0.0672444, 0.000347899)

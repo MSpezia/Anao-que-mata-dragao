@@ -1,6 +1,6 @@
 class_name PlayerBase extends CharacterBody3D
 
-enum StateMachine { IDLE , WALK, JUMP, ATTACK, ATTACK2, ATTACK3, HURT, DEAD}
+enum StateMachine { IDLE, WALK, JUMP, ATTACK, ATTACK2, ATTACK3, HURT, BLOCK, DEAD }
 
 const SOUNDS = [
 	preload("res://audio/player_hurt.ogg"),
@@ -20,6 +20,7 @@ var state : StateMachine = StateMachine.IDLE
 var enter_state : bool = true
 var in_attack : bool = false
 var camera_adjusted: float = 0.815
+var is_blocking: bool = false
 
 @onready var animated_sprite = $AnimatedSprite3D
 @onready var attackCollision: CollisionShape3D =  $Attack/AttackHitbox
@@ -27,6 +28,7 @@ var camera_adjusted: float = 0.815
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var camera: Camera3D = get_parent().get_node("Camera")
 @onready var audio : AudioStreamPlayer = get_node("AudioStreamPlayer")
+@onready var block_area: Area3D = $block_area
 
 var input : Vector2:
 	get: return Input.get_vector("ui_left","ui_right","ui_up", "ui_down") * speed
@@ -58,6 +60,7 @@ func _physics_process(delta: float) -> void:
 		StateMachine.ATTACK2: _attack2()
 		StateMachine.ATTACK3: _attack3()
 		StateMachine.HURT: _hurt()
+		StateMachine.BLOCK: _block()
 		# StateMachine.DEAD: _dead()
 
 
@@ -85,6 +88,7 @@ func _attack2() -> void: pass
 func _attack3() -> void: pass
 func _hurt() -> void:pass
 func _dead() -> void: pass
+func _block() -> void: pass
 
 
 func _movement() -> void:
@@ -116,7 +120,7 @@ func _exit_attack() -> void:
 		
 func heal(amount: int) -> void:
 	health_component.hp += amount
-	health_component.hp = min(health_component.hp, 100) # Garante que a saúde não exceda 100
+	health_component.hp = min(health_component.hp, 100)
 	ui_main.update_health(health_component.hp)
 	
 func _play_sound(sound) -> void:

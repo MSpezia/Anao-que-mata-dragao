@@ -112,10 +112,6 @@ shape = SubResource("ConcavePolygonShape3D_v6iyh")
 
 [node name="Player" parent="." instance=ExtResource("7_anuuo")]
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21, 0.55, -0.659)
-hp = null
-speed = null
-jump_force = null
-strength = null
 
 [node name="Parede2" type="MeshInstance3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00998, 0.271098)
@@ -138,8 +134,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.008)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_srb6i")
-unclocked_at_area = 3.0
-amount = 2
+unclocked_at_area = 2.0
+amount = 3
 enemies = Array[PackedScene]([ExtResource("11_yyk1s")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy"]
@@ -151,8 +147,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_srb6i")
-unclocked_at_area = 5.0
-amount = 3
+unclocked_at_area = 4.0
+amount = 4
 enemies = Array[PackedScene]([ExtResource("11_yyk1s")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy2"]
@@ -164,8 +160,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_srb6i")
-unclocked_at_area = 7.0
-amount = 4
+unclocked_at_area = 6.0
+amount = 6
 enemies = Array[PackedScene]([ExtResource("11_yyk1s")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy3"]

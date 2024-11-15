@@ -1,12 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://chpm7amb52gwb"]
+[gd_scene load_steps=33 format=3 uid="uid://chpm7amb52gwb"]
 
 [ext_resource type="Script" path="res://scripts/boss_1.gd" id="1_4lhbn"]
 [ext_resource type="Texture2D" uid="uid://daacdmgtyc2h3" path="res://sprites/ogroSheet.png" id="2_vuk3i"]
 [ext_resource type="Script" path="res://scripts/health_component.gd" id="3_4n7ny"]
 [ext_resource type="Script" path="res://scripts/hitbox_component.gd" id="4_ahlii"]
+[ext_resource type="Texture2D" uid="uid://dnwndcpqedneu" path="res://sprites/sombra.png" id="5_710br"]
+[ext_resource type="Script" path="res://scripts/sombra_boss1.gd" id="6_wp7ad"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jopdv"]
-size = Vector3(0.0674835, 0.120087, 0.0432663)
+size = Vector3(0.138916, 0.252129, 0.0432663)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at2ca"]
 atlas = ExtResource("2_vuk3i")
@@ -193,23 +195,23 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqhsd"]
-size = Vector3(0.0657959, 0.118652, 3.30176)
+size = Vector3(0.316833, 0.184814, 3.30176)
 
 [node name="Boss1" type="CharacterBody3D"]
 collision_layer = 4
 script = ExtResource("1_4lhbn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00106696, 0.06, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00106696, 0.126868, 0)
 shape = SubResource("BoxShape3D_jopdv")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.153049, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_gs1d2")
-animation = &"idle"
-frame = 1
-frame_progress = 0.314867
+animation = &"attack"
+frame = 5
+frame_progress = 0.421889
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -218,7 +220,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape3D" parent="Attack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09, 0.061, 0.005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258852, 0.0940812, 0.005)
 shape = SubResource("BoxShape3D_kqhsd")
 disabled = true
 
@@ -232,7 +234,15 @@ script = ExtResource("4_ahlii")
 health_component = NodePath("../HealthComponent")
 
 [node name="HitboxCollision" type="CollisionShape3D" parent="HitboxComponent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000448231, 0.06, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000448231, 0.126523, 0)
 shape = SubResource("BoxShape3D_jopdv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pitch_scale = 0.4
+
+[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("boss1")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0.100952, -0.00292206)
+texture_filter = 0
+texture = ExtResource("5_710br")
+script = ExtResource("6_wp7ad")
+boss1 = NodePath("..")

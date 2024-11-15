@@ -7,6 +7,15 @@ const SOUNDS_GOBLIN = [
 	preload("res://audio/swing2.wav")
 ]
 
+const SOUNDS_OGRO = [
+	preload("res://audio/ogro_dead.mp3"),
+	preload("res://audio/swing2.wav")
+]
+
+const SOUNDS_KOBOLD = [
+	preload("res://audio/ogro_dead.mp3")
+]
+
 @export var strength = 0
 @export var hp = 0
 @export var distance_attack = 0.1
@@ -42,8 +51,6 @@ func _physics_process(delta: float) -> void:
 		EnemyState.ATTACK: _attack()
 		EnemyState.HURT: _hurt()
 		EnemyState.DEAD: _dead()
-		
-		
 		
 		
 func _enter_state() -> void:

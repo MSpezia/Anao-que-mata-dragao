@@ -1,7 +1,7 @@
 extends EnemyBase
 
 func _ready() -> void:
-	set_hp(30)
+	set_hp(40)
 	strength = 10
 	super._ready()
 
@@ -27,7 +27,7 @@ func _walk(delta) -> void:
 		
 	var target_distance = player.transform.origin - transform.origin
 	velocity.x = target_distance.x / (abs(target_distance.x) * 2)
-	
+
 	walk_timer += delta
 	if walk_timer >= randf_range(1,2):
 		walk_timer = 0
