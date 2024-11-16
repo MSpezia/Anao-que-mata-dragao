@@ -1,7 +1,7 @@
 extends Area3D
 
 var velocity = Vector3.ZERO
-var range = 1
+var range = 1.5
 var speed = 1
 var start_position = Vector3.ZERO
 

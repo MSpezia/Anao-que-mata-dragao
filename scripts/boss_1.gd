@@ -1,8 +1,7 @@
-extends EnemyBase
-
+extends BossBase
 
 func _ready() -> void:
-	set_hp(180)
+	set_hp(2)
 	strength = 34
 	distance_attack = 0.2
 	super._ready()
@@ -55,6 +54,7 @@ func _attack() -> void:
 		
 		timer_state.wait_time = 1.4
 		timer_state.start()
+		
 	if animated_sprite.frame == 4:
 		_play_sound(SOUNDS_GOBLIN[1])
 	if animated_sprite.frame == 5:
@@ -64,8 +64,6 @@ func _attack() -> void:
 		
 	if animated_sprite.frame >= 8:
 		_change_state(EnemyState.IDLE)
-		
-
 		
 func _dead() -> void:
 	if enter_state:
@@ -78,4 +76,8 @@ func _dead() -> void:
 		velocity.y = 3
 		velocity.z = 0
 		timer_state.stop()
+		GameController.level_controller.enemy_death()
+		await get_tree().create_timer(1).timeout
+
+		queue_free()
 	move_and_slide()

@@ -19,6 +19,6 @@ func config_next_area(amount: int, unlocked: float) -> void:
 func boss1_defeated():
 	print("Chefe derrotado! Avançando para a Fase 2.")
 	game_controller.save_progress(2)
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1.3).timeout
 	var next_level_path = "res://cenas/Fase_2.tscn"
 	get_tree().change_scene_to_file(next_level_path)

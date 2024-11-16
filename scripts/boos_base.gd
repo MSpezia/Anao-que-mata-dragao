@@ -1,19 +1,10 @@
-class_name EnemyBase extends CharacterBody3D
+class_name BossBase extends CharacterBody3D
 
-enum EnemyState {IDLE, WALK, ATTACK, HURT, DEAD}
+enum EnemyState {IDLE, WALK, ATTACK, DEAD}
 
 const SOUNDS_GOBLIN = [
 	preload("res://audio/goblin_dead.mp3"),
 	preload("res://audio/swing2.wav")
-]
-
-const SOUNDS_OGRO = [
-	preload("res://audio/ogro_dead.mp3"),
-	preload("res://audio/swing2.wav")
-]
-
-const SOUNDS_KOBOLD = [
-	preload("res://audio/ogro_dead.mp3")
 ]
 
 @export var strength = 0
@@ -34,12 +25,10 @@ var state : EnemyState = EnemyState.IDLE
 var enter_state : bool = true
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var collision : CollisionShape3D = $HitboxComponent/HitboxCollision
-@onready var projectile_spawn : Marker3D = $projectile_spawn
 @onready var audio : AudioStreamPlayer = get_node("AudioStreamPlayer")
 
 func _ready() -> void:
 	health_component.hp = hp
-	health_component.on_damage.connect(func(hp: float): _change_state(EnemyState.HURT))
 	health_component.on_dead.connect(func(): _change_state(EnemyState.DEAD))
 	
 	attack.area_entered.connect(func(hitbox: HitboxComponent): hitbox._take_damage(strength))
@@ -49,7 +38,6 @@ func _physics_process(delta: float) -> void:
 		EnemyState.IDLE: _idle()
 		EnemyState.WALK: _walk(delta)
 		EnemyState.ATTACK: _attack()
-		EnemyState.HURT: _hurt()
 		EnemyState.DEAD: _dead()
 		
 		
@@ -67,19 +55,16 @@ func _change_state(new_state: EnemyState) -> void:
 func _idle() -> void: pass
 func _walk(delta: float) -> void: pass
 func _attack() -> void: pass
-func _hurt() -> void: pass
 func _dead() -> void: pass
 
 func _stop_movement() -> void:
 	velocity.x = 0
 	velocity.z = 0
 	
-	
 func _set_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		
-
 func _flip() -> void:
 	face_right = true if player.transform.origin.x > transform.origin.x else false
 	if face_right:
@@ -110,13 +95,6 @@ func drop_item() -> void:
 		var drink = preload("res://item/Drink.tscn").instantiate()
 		drink.position = position
 		get_parent().add_child(drink)
-
-func fire_projectile() -> void:
-	var pedra = preload("res://item/pedra.tscn").instantiate()
-	pedra.global_position = projectile_spawn.global_transform.origin
-	get_parent().add_child(pedra)
-	var direction = (player.transform.origin - global_position).normalized()
-	pedra._set_direction(direction)
 	
 func _play_sound(sound) -> void:
 	audio.stream = sound
