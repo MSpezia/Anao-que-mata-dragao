@@ -59,7 +59,7 @@ func _attack() -> void:
 		_enter_attack()
 		_play_sound(SOUNDS_GOBLIN[1])
 	elif animated_sprite.frame > 4:
-		_exit_attack()  
+		_exit_attack()
 		
 	if animated_sprite.frame >= 5:
 		_change_state(EnemyState.IDLE)

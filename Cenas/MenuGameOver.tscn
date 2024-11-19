@@ -16,7 +16,8 @@ offset_left = 200.0
 offset_top = 300.0
 offset_right = 500.0
 offset_bottom = 400.0
-text = "Tentar Novamente"
+theme_override_font_sizes/font_size = 30
+text = "TENTAR NOVAMENTE"
 
 [node name="sair" type="Button" parent="."]
 layout_mode = 0
@@ -24,7 +25,8 @@ offset_left = 800.0
 offset_top = 300.0
 offset_right = 1100.0
 offset_bottom = 400.0
-text = "Sair"
+theme_override_font_sizes/font_size = 30
+text = "SAIR"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0

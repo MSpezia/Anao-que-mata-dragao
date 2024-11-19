@@ -12,6 +12,16 @@ func _ready() -> void:
 	set_hp(20)
 	super._ready()
 	_change_state(EnemyState.WALK)
+	
+func _idle() -> void:
+	if enter_state:
+		enter_state = false
+		_set_animation("idle")
+		timer_state.wait_time = randf_range(0.5, 1)
+		timer_state.start()
+		
+		await  timer_state.timeout
+		_change_state(EnemyState.WALK)
 
 func _walk(delta: float) -> void:
 	if enter_state:
@@ -20,7 +30,7 @@ func _walk(delta: float) -> void:
 
 	var target_distance = player.global_transform.origin - global_transform.origin
 	var distance_to_player = target_distance.length()
-
+	
 	if distance_to_player < flee_distance:
 		var flee_direction = -target_distance.normalized()
 		velocity = flee_direction * speed
@@ -30,6 +40,7 @@ func _walk(delta: float) -> void:
 	elif can_attack:
 		_change_state(EnemyState.ATTACK)
 	
+	_flip()
 	move_and_slide()
 
 func _attack() -> void:
@@ -38,12 +49,15 @@ func _attack() -> void:
 		_stop_movement()
 		_set_animation("attack")
 		
+	if animated_sprite.frame == 5:
 		fire_projectile()
-		can_attack = false
-		await get_tree().create_timer(attack_cooldown).timeout
-		can_attack = true
+		_change_state(EnemyState.IDLE)
 		
-		_change_state(EnemyState.WALK)
+	can_attack = false
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
+
+	_change_state(EnemyState.IDLE)
 
 
 func _hurt() -> void:
@@ -51,7 +65,7 @@ func _hurt() -> void:
 		enter_state = false
 		_set_animation("hurt")
 		timer_state.stop()
-		timer_state.wait_time = randf_range(0.4, 0.5)
+		timer_state.wait_time = randf_range(0.4, 0.6)
 		timer_state.start()
 		
 		await timer_state.timeout

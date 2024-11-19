@@ -117,7 +117,7 @@ func fire_projectile() -> void:
 	get_parent().add_child(pedra)
 	var direction = (player.transform.origin - global_position).normalized()
 	pedra._set_direction(direction)
-	
+
 func _play_sound(sound) -> void:
 	audio.stream = sound
 	audio.play()

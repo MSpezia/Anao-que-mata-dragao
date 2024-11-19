@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbu8xlkl67qtb"]
+
+[ext_resource type="Script" path="res://TelaCreditos.gd" id="1_388a1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_388a1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 873.0
+offset_top = 213.0
+offset_right = 1173.0
+offset_bottom = 313.0
+theme_override_font_sizes/font_size = 30
+text = "MENU PRINCIPAL
+"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 873.0
+offset_top = 383.0
+offset_right = 1173.0
+offset_bottom = 483.0
+theme_override_font_sizes/font_size = 30
+text = "SAIR"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 78.0
+offset_right = 835.0
+offset_bottom = 133.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Obrigado por jogar!"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 164.0
+offset_right = 524.0
+offset_bottom = 650.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+text = "Feito por: 
+Gustavo Wallace Macedo Santos
+Matheus Spezia Freire Lorenz
+Paulo Vitor Bernardi Theobald
+
+Sons:
+CodeManu (Música)
+Glaneur de sons (Swing)
+
+Agradecimentos especias:
+Andre Gustavo Bastos Lima"

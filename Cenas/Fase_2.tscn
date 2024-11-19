@@ -85,7 +85,7 @@ texture_filter = 0
 texture = SubResource("ViewportTexture_h4eg3")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.6, 1.839, 1.736)
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.6, 1.09143, 0.203254)
 projection = 1
 current = true
 script = ExtResource("6_7b4q3")

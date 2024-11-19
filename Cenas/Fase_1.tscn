@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://chpm7amb52gwb" path="res://atores/Boss1.tscn" id="13_4qb2y"]
 [ext_resource type="Script" path="res://scripts/parallax_background.gd" id="14_8tmhg"]
 [ext_resource type="Texture2D" uid="uid://dmy20rpqvy7o1" path="res://sprites/foreground.png" id="14_a2xc8"]
-[ext_resource type="Script" path="res://cenas/caverna.gd" id="14_mkba4"]
+[ext_resource type="Script" path="res://scripts/caverna.gd" id="14_mkba4"]
 [ext_resource type="Texture2D" uid="uid://cx7gcqqtns0tm" path="res://sprites/pedro1.png" id="15_mlyws"]
 [ext_resource type="Texture2D" uid="uid://bgsv5x1rxma67" path="res://sprites/midground.png" id="15_trfxh"]
 [ext_resource type="Texture2D" uid="uid://xtmbetd6y3nv" path="res://sprites/background.png" id="16_mlxwt"]
