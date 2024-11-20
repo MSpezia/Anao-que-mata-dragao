@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dfsfplk2adinu"]
+[gd_scene load_steps=24 format=3 uid="uid://dfsfplk2adinu"]
 
 [ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_rwfyf"]
 [ext_resource type="Script" path="res://game_controller.gd" id="2_kqm7x"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b1qyvb22ojkov" path="res://sprites/hpInfill.png" id="5_qwio0"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="6_7b4q3"]
 [ext_resource type="PackedScene" uid="uid://wpcf6xa2nnpu" path="res://atores/Player.tscn" id="7_anuuo"]
+[ext_resource type="PackedScene" uid="uid://kalpvxwd4s1g" path="res://cenas/tiles_fases2.tscn" id="7_mg2x5"]
 [ext_resource type="PackedScene" uid="uid://dgfcd60jf7y6s" path="res://item/Drink.tscn" id="8_m31c1"]
 [ext_resource type="Script" path="res://scripts/spawn_enemy.gd" id="9_srb6i"]
 [ext_resource type="PackedScene" uid="uid://cfd8r0uftvitp" path="res://atores/Kobold.tscn" id="11_yyk1s"]
@@ -16,7 +17,7 @@
 [ext_resource type="Script" path="res://scripts/fim.gd" id="13_o5qbv"]
 [ext_resource type="PackedScene" uid="uid://gttj4e2kv6rt" path="res://cenas/MenuGameOver.tscn" id="13_ypssw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7c2p7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_25abh"]
 viewport_path = NodePath("Node3D/SubViewport")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vmd1h"]
@@ -79,12 +80,12 @@ visible = false
 
 [node name="SubViewport" type="SubViewport" parent="Node3D"]
 
-[node name="Node2D" type="Node2D" parent="Node3D/SubViewport"]
+[node name="Node2D" parent="Node3D/SubViewport" instance=ExtResource("7_mg2x5")]
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12415, 0.128161, 7.45058e-09)
 texture_filter = 0
-texture = SubResource("ViewportTexture_7c2p7")
+texture = SubResource("ViewportTexture_25abh")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.6, 1.839, 1.736)
