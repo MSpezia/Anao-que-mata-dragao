@@ -1,7 +1,8 @@
-extends Control
+extends Area3D
 
 func _ready() -> void:
-	$Button.connect("pressed", self._ir_para_creditos)
-
-func _ir_para_creditos() -> void:
-	get_tree().change_scene_to_file("res://cenas/TelaCreditos.tscn")
+	body_entered.connect(func(player: Player): fim())
+	
+func fim() ->void:
+	await get_tree().create_timer(2.5).timeout
+	get_tree().change_scene_to_file("res://Cenas/Fim.tscn")

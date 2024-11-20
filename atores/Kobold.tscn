@@ -1,9 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://cfd8r0uftvitp"]
+[gd_scene load_steps=29 format=3 uid="uid://cfd8r0uftvitp"]
 
 [ext_resource type="Script" path="res://scripts/kobold.gd" id="1_7ga3n"]
 [ext_resource type="Texture2D" uid="uid://devf7pqajg3jy" path="res://sprites/koboldSheet.png" id="2_8eqy7"]
 [ext_resource type="Script" path="res://scripts/health_component.gd" id="3_y6tl7"]
 [ext_resource type="Script" path="res://scripts/hitbox_component.gd" id="4_11k4o"]
+[ext_resource type="Texture2D" uid="uid://dnwndcpqedneu" path="res://sprites/sombra.png" id="5_3i7me"]
+[ext_resource type="Script" path="res://atores/sombra_kobold.gd" id="6_lmghp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jopdv"]
 size = Vector3(0.0705139, 0.120087, 0.0432663)
@@ -87,22 +89,22 @@ region = Rect2(129, 36, 43, 36)
 [sub_resource type="SpriteFrames" id="SpriteFrames_gs1d2"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_y1ie8")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": SubResource("AtlasTexture_ftbrg")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_h45ga")
 }, {
-"duration": 1.0,
+"duration": 1.4,
 "texture": SubResource("AtlasTexture_33vtu")
 }, {
-"duration": 1.0,
+"duration": 0.4,
 "texture": SubResource("AtlasTexture_sk8mk")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_1mocv")
 }],
 "loop": true,
@@ -118,10 +120,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_qfcvv")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_jwd51")
 }],
 "loop": true,
@@ -152,16 +154,16 @@ animations = [{
 "speed": 6.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_l0bb3")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_vfhau")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_pqd3n")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_ppri1")
 }],
 "loop": true,
@@ -184,7 +186,8 @@ shape = SubResource("BoxShape3D_jopdv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_gs1d2")
-animation = &"idle"
+animation = &"attack"
+frame_progress = 0.110942
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -211,6 +214,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000448231, 0.06, 0)
 shape = SubResource("BoxShape3D_jopdv")
 
 [node name="projectile_spawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116434, 0.0596314, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0734118, 0.0596314, 0.0179443)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("kobold")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0336997, -0.009)
+texture_filter = 0
+texture = ExtResource("5_3i7me")
+script = ExtResource("6_lmghp")
+kobold = NodePath("..")

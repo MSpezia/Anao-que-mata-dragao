@@ -6,7 +6,7 @@ extends Node3D
 
 var parallax_intensity_1 = 0
 var parallax_intensity_2 = 0.2
-var parallax_intensity_3 = 0.1
+var parallax_intensity_3 = 0.5
 
 func _process(delta):
 	var camera_position_x = GameController.camera.global_transform.origin.x

@@ -2,7 +2,7 @@ extends EnemyBase
 
 @export var flee_distance = 0.5
 @export var approach_distance = 0.6
-@export var attack_cooldown = 2.0
+@export var attack_cooldown = 1.5
 @export var speed = 0.5
 var can_attack = true
 
@@ -33,12 +33,17 @@ func _walk(delta: float) -> void:
 	
 	if distance_to_player < flee_distance:
 		var flee_direction = -target_distance.normalized()
-		velocity = flee_direction * speed
+		velocity = Vector3(flee_direction.x, 0, flee_direction.z) * speed
 	elif distance_to_player > approach_distance:
 		var approach_direction = target_distance.normalized()
-		velocity = approach_direction * speed
+		velocity = Vector3(approach_direction.x, 0, approach_direction.z) * speed
 	elif can_attack:
 		_change_state(EnemyState.ATTACK)
+		
+	if not velocity:
+		_set_animation("idle")
+	else:
+		_set_animation("walk")
 	
 	_flip()
 	move_and_slide()
@@ -57,8 +62,8 @@ func _attack() -> void:
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 
-	_change_state(EnemyState.IDLE)
 
+	_change_state(EnemyState.IDLE)
 
 func _hurt() -> void:
 	if enter_state:

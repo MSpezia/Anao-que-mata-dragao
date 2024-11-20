@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dfsfplk2adinu"]
+[gd_scene load_steps=23 format=3 uid="uid://dfsfplk2adinu"]
 
 [ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_rwfyf"]
 [ext_resource type="Script" path="res://game_controller.gd" id="2_kqm7x"]
 [ext_resource type="Script" path="res://scripts/ui_main.gd" id="3_ny686"]
 [ext_resource type="Texture2D" uid="uid://s6bw2ym060ru" path="res://sprites/hpOutline.png" id="4_c036f"]
 [ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="4_l8bm1"]
-[ext_resource type="PackedScene" uid="uid://p1lwcpw08oc" path="res://cenas/tiles_fases1.tscn" id="5_huayl"]
 [ext_resource type="Texture2D" uid="uid://b1qyvb22ojkov" path="res://sprites/hpInfill.png" id="5_qwio0"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="6_7b4q3"]
 [ext_resource type="PackedScene" uid="uid://wpcf6xa2nnpu" path="res://atores/Player.tscn" id="7_anuuo"]
@@ -14,9 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://cfd8r0uftvitp" path="res://atores/Kobold.tscn" id="11_yyk1s"]
 [ext_resource type="PackedScene" uid="uid://cf8ittwei61qg" path="res://cenas/MenuPause.tscn" id="12_1glay"]
 [ext_resource type="AudioStream" uid="uid://du0u2qrtg6mo4" path="res://audio/bgm_action_4.mp3" id="13_a5bqp"]
+[ext_resource type="Script" path="res://scripts/fim.gd" id="13_o5qbv"]
 [ext_resource type="PackedScene" uid="uid://gttj4e2kv6rt" path="res://cenas/MenuGameOver.tscn" id="13_ypssw"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_h4eg3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7c2p7"]
 viewport_path = NodePath("Node3D/SubViewport")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vmd1h"]
@@ -32,6 +32,9 @@ size = Vector3(4, 1, 0.1)
 data = PackedVector3Array(-2, 0.5, 0.05, 2, 0.5, 0.05, -2, -0.5, 0.05, 2, 0.5, 0.05, 2, -0.5, 0.05, -2, -0.5, 0.05, 2, 0.5, -0.05, -2, 0.5, -0.05, 2, -0.5, -0.05, -2, 0.5, -0.05, -2, -0.5, -0.05, 2, -0.5, -0.05, 2, 0.5, 0.05, 2, 0.5, -0.05, 2, -0.5, 0.05, 2, 0.5, -0.05, 2, -0.5, -0.05, 2, -0.5, 0.05, -2, 0.5, -0.05, -2, 0.5, 0.05, -2, -0.5, -0.05, -2, 0.5, 0.05, -2, -0.5, 0.05, -2, -0.5, -0.05, 2, 0.5, 0.05, -2, 0.5, 0.05, 2, 0.5, -0.05, -2, 0.5, 0.05, -2, 0.5, -0.05, 2, 0.5, -0.05, -2, -0.5, 0.05, 2, -0.5, 0.05, -2, -0.5, -0.05, 2, -0.5, 0.05, 2, -0.5, -0.05, -2, -0.5, -0.05)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfiha"]
+size = Vector3(0.0942383, 1.41895, 1.20081)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0vhvb"]
 size = Vector3(0.0942383, 1.41895, 1.20081)
 
 [node name="Fase 2" type="Node3D"]
@@ -75,17 +78,16 @@ transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, 
 visible = false
 
 [node name="SubViewport" type="SubViewport" parent="Node3D"]
-size = Vector2i(500, 45)
 
-[node name="Node2D" parent="Node3D/SubViewport" instance=ExtResource("5_huayl")]
+[node name="Node2D" type="Node2D" parent="Node3D/SubViewport"]
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.332182, 0.128161, 7.45058e-09)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12415, 0.128161, 7.45058e-09)
 texture_filter = 0
-texture = SubResource("ViewportTexture_h4eg3")
+texture = SubResource("ViewportTexture_7c2p7")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.6, 1.09143, 0.203254)
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.6, 1.839, 1.736)
 projection = 1
 current = true
 script = ExtResource("6_7b4q3")
@@ -168,6 +170,28 @@ enemies = Array[PackedScene]([ExtResource("11_yyk1s")])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
 shape = SubResource("BoxShape3D_bfiha")
 
+[node name="SpawnEnemy4" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("9_srb6i")
+unclocked_at_area = 7.0
+amount = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
+shape = SubResource("BoxShape3D_bfiha")
+
+[node name="fim" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.718, 0.052, -0.024)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("13_o5qbv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fim"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
+shape = SubResource("BoxShape3D_0vhvb")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("12_1glay")]
@@ -176,5 +200,5 @@ shape = SubResource("BoxShape3D_bfiha")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_a5bqp")
-volume_db = -10.0
+volume_db = -30.0
 autoplay = true

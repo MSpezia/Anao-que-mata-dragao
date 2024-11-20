@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cicp6ake718h7"]
 
-[ext_resource type="Script" path="res://scripts/fim.gd" id="1_mhc0t"]
+[ext_resource type="Script" path="res://scripts/creditos.gd" id="1_mhc0t"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
