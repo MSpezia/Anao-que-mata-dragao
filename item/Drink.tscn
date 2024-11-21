@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgfcd60jf7y6s"]
+[gd_scene load_steps=6 format=3 uid="uid://dgfcd60jf7y6s"]
 
 [ext_resource type="Texture2D" uid="uid://bip6o1imb53jn" path="res://sprites/cerveja.png" id="1_fujmm"]
 [ext_resource type="Script" path="res://scripts/drink.gd" id="1_rgdlo"]
 [ext_resource type="Texture2D" uid="uid://dnwndcpqedneu" path="res://sprites/sombra.png" id="3_4g3r3"]
+[ext_resource type="Script" path="res://item/sprite_3d_2.gd" id="3_a1tcy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fg84u"]
 size = Vector3(0.140869, 0.144775, 0.298828)
@@ -14,10 +15,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000823975, 0.0552274, 0)
 collision_mask = 2
 script = ExtResource("1_rgdlo")
 
-[node name="Sprite3D2" type="Sprite3D" parent="Area3D"]
+[node name="Sprite3D2" type="Sprite3D" parent="Area3D" node_paths=PackedStringArray("drink")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00146973, -0.0398544, -0.00354584)
 texture_filter = 0
 texture = ExtResource("3_4g3r3")
+script = ExtResource("3_a1tcy")
+drink = NodePath("../..")
 
 [node name="Hitbox" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_fg84u")

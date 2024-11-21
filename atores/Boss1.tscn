@@ -239,7 +239,7 @@ shape = SubResource("BoxShape3D_jopdv")
 pitch_scale = 0.4
 
 [node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("boss1")]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0.100952, -0.00292206)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -0.00726372, 0.0464069, -0.00292206)
 texture_filter = 0
 texture = ExtResource("5_710br")
 script = ExtResource("6_wp7ad")

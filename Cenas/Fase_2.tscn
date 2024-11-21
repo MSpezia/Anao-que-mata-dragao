@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dfsfplk2adinu"]
+[gd_scene load_steps=30 format=3 uid="uid://dfsfplk2adinu"]
 
 [ext_resource type="Script" path="res://scripts/level_controller.gd" id="1_rwfyf"]
 [ext_resource type="Script" path="res://game_controller.gd" id="2_kqm7x"]
@@ -13,10 +13,15 @@
 [ext_resource type="Script" path="res://scripts/spawn_enemy.gd" id="9_srb6i"]
 [ext_resource type="PackedScene" uid="uid://cfd8r0uftvitp" path="res://atores/Kobold.tscn" id="11_yyk1s"]
 [ext_resource type="PackedScene" uid="uid://cf8ittwei61qg" path="res://cenas/MenuPause.tscn" id="12_1glay"]
-[ext_resource type="PackedScene" uid="uid://cv1sauh111hj0" path="res://atores/Boss2.tscn" id="13_5mxwo"]
 [ext_resource type="AudioStream" uid="uid://du0u2qrtg6mo4" path="res://audio/bgm_action_4.mp3" id="13_a5bqp"]
 [ext_resource type="Script" path="res://scripts/fim.gd" id="13_o5qbv"]
+[ext_resource type="PackedScene" uid="uid://d02c4ggx4ko4k" path="res://atores/Goblin.tscn" id="13_qvftk"]
 [ext_resource type="PackedScene" uid="uid://gttj4e2kv6rt" path="res://cenas/MenuGameOver.tscn" id="13_ypssw"]
+[ext_resource type="Script" path="res://cenas/parallax_controller.gd" id="18_yiur7"]
+[ext_resource type="Texture2D" uid="uid://dt5qdqahmcdgd" path="res://sprites/foreground1-fase2.png" id="19_wmwvu"]
+[ext_resource type="Texture2D" uid="uid://dqs4e81wa7bb5" path="res://sprites/foreground2-fase2.png" id="20_cli6c"]
+[ext_resource type="Texture2D" uid="uid://dlcuxp7rqjkcu" path="res://sprites/middleground-fase2.png" id="21_kr615"]
+[ext_resource type="Texture2D" uid="uid://g5cyfbnet2r" path="res://sprites/background_fase2.png" id="22_7odfl"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_25abh"]
 viewport_path = NodePath("Node3D/SubViewport")
@@ -116,7 +121,7 @@ mesh = SubResource("BoxMesh_54bg6")
 shape = SubResource("ConcavePolygonShape3D_v6iyh")
 
 [node name="Player" parent="." instance=ExtResource("7_anuuo")]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21, 0.55, -0.659)
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.211, 0.55, -0.659)
 
 [node name="Parede2" type="MeshInstance3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00998, 0.271098)
@@ -135,13 +140,12 @@ transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, 
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.609216, 0.54, 0)
 
 [node name="SpawnEnemy" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.008)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_srb6i")
 unclocked_at_area = 2.0
-amount = 3
-enemies = Array[PackedScene]([ExtResource("11_yyk1s")])
+amount = 4
+enemies = Array[PackedScene]([ExtResource("11_yyk1s"), ExtResource("13_qvftk")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
@@ -153,8 +157,8 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_srb6i")
 unclocked_at_area = 4.0
-amount = 4
-enemies = Array[PackedScene]([ExtResource("11_yyk1s")])
+amount = 6
+enemies = Array[PackedScene]([ExtResource("11_yyk1s"), ExtResource("13_qvftk")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
@@ -166,8 +170,8 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_srb6i")
 unclocked_at_area = 6.0
-amount = 6
-enemies = Array[PackedScene]([ExtResource("11_yyk1s")])
+amount = 7
+enemies = Array[PackedScene]([ExtResource("11_yyk1s"), ExtResource("13_qvftk")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
@@ -180,14 +184,13 @@ collision_mask = 2
 script = ExtResource("9_srb6i")
 unclocked_at_area = 7.0
 amount = 1
-enemies = Array[PackedScene]([ExtResource("13_5mxwo")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
 shape = SubResource("BoxShape3D_bfiha")
 
 [node name="fim" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.718, 0.052, -0.024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.718, 0, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("13_o5qbv")
@@ -206,3 +209,27 @@ shape = SubResource("BoxShape3D_0vhvb")
 stream = ExtResource("13_a5bqp")
 volume_db = -25.0
 autoplay = true
+
+[node name="ParallaxController" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00935042, -0.024)
+script = ExtResource("18_yiur7")
+
+[node name="fundo_1" type="Sprite3D" parent="ParallaxController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.009, 0.272, -1.99)
+texture_filter = 0
+texture = ExtResource("19_wmwvu")
+
+[node name="fundo_1_1" type="Sprite3D" parent="ParallaxController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00874, 0.271517, -2)
+texture_filter = 0
+texture = ExtResource("20_cli6c")
+
+[node name="fundo_2" type="Sprite3D" parent="ParallaxController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00819, 0.271, -2.01)
+texture_filter = 0
+texture = ExtResource("21_kr615")
+
+[node name="fundo_3" type="Sprite3D" parent="ParallaxController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.00919, 0.271, -2.02)
+texture_filter = 0
+texture = ExtResource("22_7odfl")

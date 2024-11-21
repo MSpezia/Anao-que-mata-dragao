@@ -390,6 +390,7 @@ shape = SubResource("BoxShape3D_1vbou")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00276448, 0)
 texture_filter = 0
 texture = ExtResource("7_ak4h3")
 script = ExtResource("7_6j0yd")

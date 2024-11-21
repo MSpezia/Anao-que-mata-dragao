@@ -81,7 +81,7 @@ texture_filter = 0
 texture = ExtResource("1_ba5qy")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, 3.07677, 0.101879, -1.02439)
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, 3.077, 0.05, -1)
 
 [node name="SubViewport" type="SubViewport" parent="Node3D"]
 size = Vector2i(1100, 45)
@@ -94,13 +94,13 @@ texture_filter = 0
 texture = SubResource("ViewportTexture_h4eg3")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.601, 1.891, 1.712)
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.6, 1.839, 1.736)
 projection = 1
 current = true
 script = ExtResource("3_aqw04")
 
 [node name="Chão" type="MeshInstance3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, 0.583521, 2.14718)
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.532, 2.172)
 visible = false
 mesh = SubResource("PlaneMesh_vmd1h")
 
@@ -120,7 +120,7 @@ mesh = SubResource("BoxMesh_54bg6")
 shape = SubResource("ConcavePolygonShape3D_v6iyh")
 
 [node name="Player" parent="." instance=ExtResource("2_n6bd1")]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.21107, 0.601879, -0.683394)
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.211, 0.55, -0.659)
 
 [node name="Parede2" type="MeshInstance3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, 1.06186, 0.246704)
@@ -136,7 +136,6 @@ shape = SubResource("ConcavePolygonShape3D_v6iyh")
 transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -0.85107, 0.591879, -0.024394)
 
 [node name="SpawnEnemy" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, 0.0518789, -0.016394)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
@@ -149,7 +148,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
 shape = SubResource("BoxShape3D_bfiha")
 
 [node name="SpawnEnemy2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99893, 0.0518789, -0.024394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
@@ -162,7 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0899994, 0.777, -0.243709)
 shape = SubResource("BoxShape3D_bfiha")
 
 [node name="SpawnEnemy3" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.99893, 0.0518789, -0.024394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
@@ -175,7 +174,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
 shape = SubResource("BoxShape3D_bfiha")
 
 [node name="SpawnEnemy4" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.052, -0.024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
@@ -188,7 +187,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.777, -0.232)
 shape = SubResource("BoxShape3D_bfiha")
 
 [node name="caverna" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71758, 0.052, -0.024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.718, 0, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("14_mkba4")
@@ -206,7 +205,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ParallaxController" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, 0.0518789, -0.024394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.024)
 script = ExtResource("14_8tmhg")
 
 [node name="fundo_1" type="Sprite3D" parent="ParallaxController"]

@@ -215,7 +215,7 @@ shape = SubResource("BoxShape3D_jopdv")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("goblin")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09, -0.009)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136252, -0.009)
 texture_filter = 0
 texture = ExtResource("5_611cc")
 script = ExtResource("6_21kmt")

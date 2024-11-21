@@ -19,7 +19,6 @@ func _spawn_enemies() ->void:
 	GameController.level_controller.config_next_area(amount, unclocked_at_area)
 	queue_free()
 		
-		
 func _set_enemy_random_position() -> Vector3:
 	var side := randi_range(0,1)
 	var new_posisiton: Vector3

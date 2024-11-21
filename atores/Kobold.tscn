@@ -219,7 +219,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0734118, 0.0596314, 0.0179
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("kobold")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0336997, -0.009)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0278899, -0.009)
 texture_filter = 0
 texture = ExtResource("5_3i7me")
 script = ExtResource("6_lmghp")

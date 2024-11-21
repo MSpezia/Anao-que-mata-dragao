@@ -4,7 +4,7 @@ extends Sprite3D
 var y_position = 0
 
 func _ready():
-	y_position = global_transform.origin.y
+	y_position = global_transform.origin.y -0.1
 
 func _process(delta):
 	global_transform.origin.x = goblin.global_transform.origin.x
