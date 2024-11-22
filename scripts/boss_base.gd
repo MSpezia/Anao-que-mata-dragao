@@ -1,6 +1,6 @@
 class_name BossBase extends CharacterBody3D
 
-enum EnemyState {IDLE, WALK, ATTACK, DEAD}
+enum EnemyState {IDLE, WALK, ATTACK, DEAD, FIRE}
 
 const SOUNDS_GOBLIN = [
 	preload("res://audio/goblin_dead.mp3"),
@@ -26,6 +26,7 @@ var enter_state : bool = true
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var collision : CollisionShape3D = $HitboxComponent/HitboxCollision
 @onready var audio : AudioStreamPlayer = get_node("AudioStreamPlayer")
+@onready var fire_spawn : Marker3D = $fire_spawn
 
 func _ready() -> void:
 	health_component.hp = hp
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		EnemyState.WALK: _walk(delta)
 		EnemyState.ATTACK: _attack()
 		EnemyState.DEAD: _dead()
-		
+		EnemyState.FIRE: _fire()
 		
 func _enter_state() -> void:
 	if enter_state:
@@ -56,6 +57,7 @@ func _idle() -> void: pass
 func _walk(delta: float) -> void: pass
 func _attack() -> void: pass
 func _dead() -> void: pass
+func _fire() -> void: pass
 
 func _stop_movement() -> void:
 	velocity.x = 0
@@ -109,3 +111,10 @@ func _on_take_damage(damage: int) -> void:
 	if hp <= 0:
 		state = EnemyState.DEAD
 		get_tree().call_group("controllers", "boss_defeated")
+		
+func fire() -> void:
+	var fireball = preload("res://item/fireball.tscn").instantiate()
+	fireball.global_position = fire_spawn.global_transform.origin
+	get_parent().add_child(fireball)
+	var direction = (player.transform.origin - global_position).normalized()
+	fireball._set_direction(direction)

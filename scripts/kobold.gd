@@ -26,7 +26,11 @@ func _idle() -> void:
 func _walk(delta: float) -> void:
 	if enter_state:
 		enter_state = false
-		_set_animation("walk")
+		timer_state.wait_time = randf_range(1, 3)
+		timer_state.start()
+		
+		await  timer_state.timeout
+		_change_state(EnemyState.IDLE)
 
 	var target_distance = player.global_transform.origin - global_transform.origin
 	var distance_to_player = target_distance.length()
@@ -41,7 +45,7 @@ func _walk(delta: float) -> void:
 		_change_state(EnemyState.ATTACK)
 		
 	if not velocity:
-		_set_animation("idle")
+		_change_state(EnemyState.IDLE)
 	else:
 		_set_animation("walk")
 	
@@ -57,11 +61,10 @@ func _attack() -> void:
 	if animated_sprite.frame == 5:
 		fire_projectile()
 		_change_state(EnemyState.IDLE)
-		
+
 	can_attack = false
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
-
 
 	_change_state(EnemyState.IDLE)
 

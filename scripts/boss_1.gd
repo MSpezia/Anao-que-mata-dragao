@@ -1,7 +1,7 @@
 extends BossBase
 
 func _ready() -> void:
-	set_hp(2)
+	set_hp(130)
 	strength = 34
 	distance_attack = 0.2
 	super._ready()
@@ -71,7 +71,6 @@ func _dead() -> void:
 		_set_animation("dead")
 		_play_sound(SOUNDS_GOBLIN[0])
 		collision.disabled = true
-		drop_item()
 		velocity.x = 1 if player.global_position.x < global_position.x else -1
 		velocity.y = 3
 		velocity.z = 0

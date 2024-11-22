@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://exhbvd3powme"]
+
+[ext_resource type="Script" path="res://scripts/fireball.gd" id="1_n5gnc"]
+[ext_resource type="Texture2D" uid="uid://vfbqxb7uut2g" path="res://sprites/fireball.png" id="2_upvkl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cajev"]
+size = Vector3(0.15332, 0.117188, 0.483398)
+
+[node name="Fireball" type="Area3D"]
+collision_layer = 3
+collision_mask = 2
+script = ExtResource("1_n5gnc")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("2_upvkl")
+
+[node name="HitBox" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_cajev")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
