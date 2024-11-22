@@ -141,7 +141,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_srb6i")
 unclocked_at_area = 2.0
-amount = 1
+amount = 3
 enemies = Array[PackedScene]([ExtResource("11_yyk1s"), ExtResource("13_qvftk")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy"]
@@ -154,7 +154,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_srb6i")
 unclocked_at_area = 4.0
-amount = 1
+amount = 5
 enemies = Array[PackedScene]([ExtResource("11_yyk1s"), ExtResource("13_qvftk")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy2"]
@@ -167,7 +167,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_srb6i")
 unclocked_at_area = 6.0
-amount = 1
+amount = 7
 enemies = Array[PackedScene]([ExtResource("11_yyk1s"), ExtResource("13_qvftk")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy3"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://br5yd5mio14gs"]
+[gd_scene load_steps=33 format=3 uid="uid://br5yd5mio14gs"]
 
 [ext_resource type="Script" path="res://game_controller.gd" id="1_30ppm"]
 [ext_resource type="Texture2D" uid="uid://c48ioebxkdcpx" path="res://sprites/Cenário provisório.png" id="1_ba5qy"]
@@ -24,6 +24,8 @@
 [ext_resource type="AudioStream" uid="uid://0yvjgyty4yw3" path="res://audio/bgm_action_3.mp3" id="18_py83u"]
 [ext_resource type="Texture2D" uid="uid://duvypmwnsomtt" path="res://sprites/pedro2.png" id="23_ddhjl"]
 [ext_resource type="Texture2D" uid="uid://y5iuhouqdq1c" path="res://sprites/pedro3.png" id="24_hsjom"]
+[ext_resource type="Texture2D" uid="uid://cmoftvi4m6sxm" path="res://sprites/entradaCavernaFrente.png" id="25_1e6h5"]
+[ext_resource type="Texture2D" uid="uid://bit0d0ju8ss8i" path="res://sprites/entradaCavernaTras.png" id="26_g2fp0"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h4eg3"]
 viewport_path = NodePath("Node3D/SubViewport")
@@ -140,7 +142,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
 unclocked_at_area = 2.0
-amount = 1
+amount = 4
 enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy"]
@@ -153,7 +155,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
 unclocked_at_area = 4.0
-amount = 1
+amount = 6
 enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy2"]
@@ -166,7 +168,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_fhf3t")
 unclocked_at_area = 6.0
-amount = 1
+amount = 8
 enemies = Array[PackedScene]([ExtResource("6_w7dak")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnEnemy3"]
@@ -405,295 +407,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.71908, -0.163864, 0)
 texture_filter = 0
 texture = ExtResource("24_hsjom")
 
-[node name="caverna_pedros" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.38039, 0.397952, -0.974593)
+[node name="caverna2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.898794, 0.438371, 0, -0.438371, 0.898794, -1.36697, 0.397952, -0.971371)
 
-[node name="pedro" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25773, 0, 1.47503)
+[node name="cavernaFrente" type="Sprite3D" parent="caverna2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19158, 0.0126677, 1.48121)
 texture_filter = 0
-texture = ExtResource("15_mlyws")
+texture = ExtResource("25_1e6h5")
 
-[node name="pedro2" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26102, -0.0552513, 1.47503)
+[node name="cavernaTras" type="Sprite3D" parent="caverna2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.06644, 0.00828534, -0.244568)
 texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro3" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25644, -0.0932944, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro4" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25773, -0.110672, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro5" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26102, -0.165923, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro6" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25644, -0.203966, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro7" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25773, -0.222089, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro8" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26102, -0.27734, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro9" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25644, -0.315383, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro10" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25773, 0.0879717, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro11" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26102, 0.0327204, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro12" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25644, -0.00532275, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro13" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25773, 0.18225, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro14" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26102, 0.126998, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro31" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, 0, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro32" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2033, -0.0552513, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro33" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19872, -0.0932944, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro34" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, -0.110672, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro35" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2033, -0.165923, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro36" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19872, -0.203966, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro37" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, -0.222089, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro38" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2033, -0.27734, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro39" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19872, -0.315383, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro40" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, 0.0879717, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro41" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2033, 0.0327204, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro42" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19872, -0.00532275, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro43" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, 0.18225, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro44" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2033, 0.126998, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro45" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14756, 0, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro46" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15085, -0.0552513, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro47" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14627, -0.0932944, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro48" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14756, -0.110672, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro49" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15085, -0.165923, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro50" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14627, -0.203966, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro51" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14756, -0.222089, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro52" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15085, -0.27734, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro53" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14627, -0.315383, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro54" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14756, 0.0879717, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro55" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15085, 0.0327204, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro56" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14627, -0.00532275, 1.47503)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro57" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.14756, 0.18225, 1.47503)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro58" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15085, 0.126998, 1.47503)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro15" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25644, 0.0889553, 0)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro16" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25773, 0.238769, 0)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro17" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.26102, 0.183517, 0)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro18" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25644, 0.145474, 0)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro19" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21945, 0.238769, 0)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro20" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.22274, 0.183517, 0)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro21" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21816, 0.145474, 0)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro22" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.17969, 0.238769, 0)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro23" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.18299, 0.183517, 0)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro24" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1784, 0.145474, 0)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro25" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.13489, 0.183431, 0)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro26" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.13818, 0.128179, 0)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro27" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1336, 0.0901362, 0)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
-
-[node name="pedro28" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.13489, 0.124091, 0)
-texture_filter = 0
-texture = ExtResource("15_mlyws")
-
-[node name="pedro29" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.13818, 0.0688398, 0)
-texture_filter = 0
-texture = ExtResource("23_ddhjl")
-
-[node name="pedro30" type="Sprite3D" parent="caverna_pedros"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1336, 0.0307966, 0)
-texture_filter = 0
-texture = ExtResource("24_hsjom")
+texture = ExtResource("26_g2fp0")

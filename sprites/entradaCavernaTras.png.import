@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vfbqxb7uut2g"
-path="res://.godot/imported/fireball.png-f0951f9ab848eb4b34aa40add7d3a935.ctex"
+uid="uid://bit0d0ju8ss8i"
+path="res://.godot/imported/entradaCavernaTras.png-9bf8630c7a045363cb604b838f2ab206.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/fireball.png"
-dest_files=["res://.godot/imported/fireball.png-f0951f9ab848eb4b34aa40add7d3a935.ctex"]
+source_file="res://sprites/entradaCavernaTras.png"
+dest_files=["res://.godot/imported/entradaCavernaTras.png-9bf8630c7a045363cb604b838f2ab206.ctex"]
 
 [params]
 

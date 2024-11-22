@@ -4,7 +4,7 @@ var pedra = preload("res://item/fireball.tscn")
 var has_fired = false
 
 func _ready() -> void:
-	set_hp(1)
+	set_hp(200)
 	strength = 25
 	distance_attack = 0.4
 	gravity = 0
@@ -71,7 +71,6 @@ func _dead() -> void:
 		timer_state.stop()
 		GameController.level_controller.enemy_death()
 		await get_tree().create_timer(1).timeout
-		queue_free()
 	move_and_slide()
 	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://Cenas/Fim.tscn")
